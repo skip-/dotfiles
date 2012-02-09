@@ -1,0 +1,41 @@
+# EC Standard Login Environment -*- sh -*-
+# user .fvwm2rc-menu
+# $Source: /usr/cvs/cvsrep/ec_environ-1.0/release/user/fvwm2rc-menu,v $
+# $Revision: 1.6 $
+#
+
+# See /usr/intel/common/pkgs/eclogin/1.0/ec/fvwm2rc-menu and fvwm(1)
+
+## You can add your own entries to any menu in the above file with
+## AddToMenu <menuname> followed by + lines as shown below.
+
+## You can completely replace a menu with DestroyMenu followed by
+## AddToMenu, as in the above default file.
+
+AddToMenu Applications
+##
+## (xterm, mozilla, others included by system)
+##
+## wts/metaframe availability varies by site; choose one if you wish
+#+	"MetaFrame"	exec	metaframe &
+#+	"WTS"		exec	wts &
+## Star Office may not exist except on modern Linux
+#+	"StarOffice"	exec	soffice &
+
+AddToMenu ModulesPopup
+#
+# uncomment if you want WinList available
++	"FvwmWinList"		Module FvwmWinList
+
+#Uncomment if you want to enable access
+#to alternate window managers
+#
+#DestroyMenu "DefConPopup"
+#AddToMenu DefConPopup "Other Window Mgrs."      Title
+#+      "(not all exist on all platforms)"      Nop
+#+      " "                                     Nop
+#+      "fvwm2 %mini.fvwm.xpm%"                 Restart fvwm2
+#+      "twm %mini-twm.xpm%"                    Restart twm
+#+      "mwm %mini-mwm.xpm%"                    Restart mwm
+#+      "olvwm %mini-olwm.xpm%"                 Restart olvwm
+

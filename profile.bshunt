@@ -1,0 +1,42 @@
+# allow bash windows to write to history, not overwrite eachother
+shopt -s histappend
+# keep multi-line commands as one line in history
+shopt -s cmdhist
+# remove duplicates from history
+export HISTCONTROL="ignoredups"
+export HISTIGNORE="&:ls:[bf]g:exit"
+
+if [ -r $HOME/.aliases.sh ]; then
+  . $HOME/.aliases.sh
+fi
+
+## Only modify the path if it appears we haven't changed it before
+#echo $PATH | grep $USER 2>&1 >/dev/null
+#if [ $? -ne 0 ]; then
+#    export PATH=$HOME/bin:$PATH
+#fi
+
+## Setup the prompt to be more useful
+    #PS1="\h:\w\$ "  # hostname : working directory
+    #PS1="`uname -n`$ "	#shell prompt
+    #PS1="\s-\v\$ " # basename of $0 - version of bash
+    #PS1="\u@\h\$ "  # username @ hostname (up to first .)
+    PS1="[#\# \h:\[\e[0;32m\]\w\[\e[0m\]]\$ "  # hostname : working directory
+    #if [ -f $HOME/.fancy_prompt.sh ]; then 
+#	source $HOME/.fancy_prompt.sh; 
+#	fancy_prompt
+#    fi
+#    if [ -f $HOME/.bash_gitprompt ]; then
+#	source $HOME/.bash_gitprompt
+#    fi
+    git_bash_completion=$HOME/.git-completion.bash
+    if [ -f $git_bash_completion ]; then
+	source $git_bash_completion
+	GIT_PS1_SHOWDIRTYSTATE="true"
+	GIT_PS1_SHOWSTASHSTATE="true"
+	#GIT_PS1_SHOWUNTRACKEDFILES="true"
+	GIT_PS1_SHOWUPSTREAM="auto"
+	# too slow
+	# PS1='[\h \[\e[0;32m\]\W$(__git_ps1 " \[\e[0;36m\](%s)")\[\e[0m\]]\$ '
+    fi
+

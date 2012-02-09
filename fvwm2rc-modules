@@ -1,0 +1,55 @@
+# EC Standard Login Environment -*- sh -*-
+# user .fvwm2rc-modules file
+# $Source: /usr/cvs/cvsrep/ec_environ-1.0/release/user/fvwm2rc-modules,v $
+# $Revision: 1.10 $
+#
+
+## See /usr/intel/common/pkgs/eclogin/1.0/ec/fvwm2rc-modules and fvwm(1)
+
+## You can override anything in the above file in this file.
+
+###----->Buttons<-----
+
+# You can PREPEND buttons to the buttonbar, e.g.:
+#*FvwmButtons(Swallow(UseOld) "xbiff" 'Exec xbiff &')
+
+#site may PREPEND some buttons (normally xload); comment to exclude them
+#Read /usr/intel/common/pkgs/eclogin/1.0/site/fvwm2rc-modules
+
+# Buttons can swallow small status apps, launch big apps or popup
+# menus.  It is nice to swallow the virtual desktop pager.  But then
+# the dimensions of the DeskTopSize are dependent on the layout of the
+# buttons.  Therefore, these options are mutually exclusive.  So:
+
+#	1) uncomment only one of these Read options, the only difference
+#	between the [vh]buttonbar and [vh]buttonbar-no-icons is that the
+#	no-icons version removed the large icons for the menu buttons.
+#	Makes the button bar a little less noisy and somewhat smaller
+
+# or	2) copy one to your own file and edit (power users only)
+
+#	a) for vertical status/button bar along right edge with 2x4 desktop
+Read /usr/intel/common/pkgs/eclogin/1.0/ec/fvwm2rc-vbuttonbar
+#Read /usr/intel/common/pkgs/eclogin/1.0/ec/fvwm2rc-vbuttonbar-no-icons
+
+#	b) for horizontal status/button bar along bottom edge with 4x2 desktop
+#Read /usr/intel/common/pkgs/eclogin/1.0/ec/fvwm2rc-hbuttonbar
+#Read /usr/intel/common/pkgs/eclogin/1.0/ec/fvwm2rc-hbuttonbar-no-icons
+
+#	c) for compressed button box with mini-icons in lower right corner with 2x4 desktop
+#Read /usr/intel/common/pkgs/eclogin/1.0/ec/fvwm2rc-buttonbox
+
+# 3) You may want to customize the button bar:
+#
+# Location
+#*FvwmButtonsGeometry +1+1	#upper left
+#*FvwmButtonsGeometry +1-1	#lower left
+#*FvwmButtonsGeometry -1-1	#lower right
+#*FvwmButtonsGeometry -1+1	#upper right
+
+# You can APPEND your own buttons, e.g.:
+#*FvwmButtons(Title Xmag, Icon mag_glass.xpm,	Action 'exec xmag &')
+
+# Your project may APPEND a button or two; this
+# may be commented/removed to exclude project changes
+Read .project.eclogin-link/fvwm2rc-modules

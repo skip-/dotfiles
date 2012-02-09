@@ -1,0 +1,66 @@
+# EC Standard Login Environment -*- sh -*-
+# user .fvwm2rc file
+# $Source: /usr/cvs/cvsrep/ec_environ-1.0/release/user/fvwm2rc,v $
+# $Revision: 1.5 $
+#
+# Support Info:  The original version of this file and the files it
+#                reads in at startup (if no changes have been made)
+#                is supported by Engineering Computing.
+#
+
+###---------->GLOBAL PATHS<----------
+#fvwm2.2.x versions
+PixmapPath /usr/intel/common/pkgs/icons/
+IconPath /usr/intel/common/pkgs/icons/
+
+#fvwm2.4.x+ versions
+ImagePath /usr/intel/common/pkgs/icons/:+
+
+# Each fvwm2 version will issue warnings about commands
+# unknown/obsolete, but this is not fatal and the best
+# compromise to provide a file compatible with both.
+
+###---------->MODULAR COMPONENTS<----------
+###
+### Please note that fvwm2 works best if the configuration
+### is read in a certain order. By breaking this into seperate
+### files, you can avoid corrupting the configuration. You can
+### make changes to the files you want to without risking an
+### out of order startup.
+
+###---------->Init and Restart functions<----------
+#
+Read /usr/intel/common/pkgs/eclogin/1.0/ec/fvwm2rc-startup
+Read .fvwm2rc-startup
+
+
+###---------->Pager, Buttons, other fvwm2 Modules<----------
+#
+Read /usr/intel/common/pkgs/eclogin/1.0/ec/fvwm2rc-modules
+Read .fvwm2rc-modules
+
+
+###---------->Decorations: fonts, colors, etc<----------
+#
+Read /usr/intel/common/pkgs/eclogin/1.0/ec/fvwm2rc-theme
+Read .fvwm2rc-theme
+
+
+###---------->Menus, Buttons<----------
+#
+# global
+Read /usr/intel/common/pkgs/eclogin/1.0/ec/fvwm2rc-menu
+#
+# project
+Read .project.eclogin-link/fvwm2rc-menu
+#
+# user
+Read .fvwm2rc-menu
+
+
+#========================================================================#
+##
+## For detailed information on customizing fvwm, please look
+## at the official fvwm site at http://www.fvwm.org
+##
+#========================================================================#

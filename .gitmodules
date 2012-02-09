@@ -1,0 +1,69 @@
+[submodule "vimfiles/bundle/fugitive"]
+	path = vimfiles/bundle/fugitive
+	url = http://github.com/tpope/vim-fugitive.git
+[submodule "vimfiles/bundle/surround"]
+	path = vimfiles/bundle/surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "vimfiles/bundle/git"]
+	path = vimfiles/bundle/git
+	url = https://github.com/tpope/vim-git.git
+[submodule "vimfiles/bundle/supertab"]
+	path = vimfiles/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "vimfiles/bundle/minibufexpl"]
+	path = vimfiles/bundle/minibufexpl
+	url = https://github.com/sontek/minibufexpl.vim.git
+[submodule "vimfiles/bundle/command-t"]
+	path = vimfiles/bundle/command-t
+	url = https://github.com/wincent/Command-T.git
+[submodule "vimfiles/bundle/pyflakes"]
+	path = vimfiles/bundle/pyflakes
+	url = https://github.com/mitechie/pyflakes-pathogen.git
+[submodule "vimfiles/bundle/ack"]
+	path = vimfiles/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "vimfiles/bundle/gundo"]
+	path = vimfiles/bundle/gundo
+	url = https://github.com/sjl/gundo.vim.git
+[submodule "vimfiles/bundle/pydoc"]
+	path = vimfiles/bundle/pydoc
+	url = https://github.com/fs111/pydoc.vim.git
+[submodule "vimfiles/bundle/pep8"]
+	path = vimfiles/bundle/pep8
+	url = https://github.com/vim-scripts/pep8.git
+[submodule "vimfiles/bundle/py.test"]
+	path = vimfiles/bundle/py.test
+	url = https://github.com/alfredodeza/pytest.vim.git
+[submodule "vimfiles/bundle/makegreen"]
+	path = vimfiles/bundle/makegreen
+	url = https://github.com/reinh/vim-makegreen
+[submodule "vimfiles/bundle/tasklist"]
+	path = vimfiles/bundle/tasklist
+	url = https://github.com/vim-scripts/TaskList.vim.git
+[submodule "vimfiles/bundle/nerdtree"]
+	path = vimfiles/bundle/nerdtree
+	url = https://github.com/vim-scripts/The-NERD-tree.git
+[submodule "vimfiles/bundle/ropevim"]
+	path = vimfiles/bundle/ropevim
+	url = https://github.com/sontek/rope-vim.git
+[submodule "vimfiles/bundle/pathogen"]
+	path = vimfiles/bundle/pathogen
+	url = https://github.com/tpope/vim-pathogen
+[submodule "vimfiles/bundle/delmitmate"]
+	path = vimfiles/bundle/delmitmate
+	url = git://github.com/Raimondi/delimitMate.git
+[submodule "vimfiles/bundle/closetag"]
+	path = vimfiles/bundle/closetag
+	url = git://github.com/docunext/closetag.vim.git
+[submodule "vimfiles/bundle/nerdcommenter"]
+	path = vimfiles/bundle/nerdcommenter
+	url = git://github.com/scrooloose/nerdcommenter.git
+[submodule "vimfiles/bundle/Better-CSS-Syntax-for-Vim"]
+	path = vimfiles/bundle/Better-CSS-Syntax-for-Vim
+	url = https://github.com/vim-scripts/Better-CSS-Syntax-for-Vim.git
+[submodule "vimfiles/bundle/UltiSnips"]
+	path = vimfiles/bundle/UltiSnips
+	url = https://github.com/vim-scripts/UltiSnips.git
+[submodule "vimfiles/bundle/vim-css-color"]
+	path = vimfiles/bundle/vim-css-color
+	url = https://github.com/skammer/vim-css-color.git

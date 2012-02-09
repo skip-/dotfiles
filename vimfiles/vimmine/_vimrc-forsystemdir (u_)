@@ -1,0 +1,35 @@
+" put this file into the system VIM directory
+" in vim use :echo $VIM to find it,
+" rename it to _vimrc
+fun! MySys()
+	return "windows"
+endfun
+
+set runtimepath=C:/Documents\ and\ Settings/bhunt/My\ Documents/vimfiles,$VIM,$VIMRUNTIME
+"source "c:\Program Files\vim\vimfiles\vimrc"
+source c:/Documents\ and\ Settings/bhunt/My\ Documents/vimfiles/vimrc
+
+" old " 
+" old " set nocompatible
+" old " 
+" old " let candidatevimrc=$HOMESHARE."/vimfiles/vimrc"
+" old " if "" != getftype(candidatevimrc)
+" old "     let myvimfilespath=$HOMESHARE
+" old " else
+" old "     let myvimfilespath=$HOMEDRIVE."/".$HOMEPATH."/My Documents"
+" old "     let candidatevimrc=myvimfilespath."/vimfiles/vimrc"
+" old "     if "" != getftype(candidatevimrc)
+" old "         let myvimfilespath="C:/Documents and Settings/bhunt/My Documents"
+" old "         let candidatevimrc=myvimfilespath."/vimfiles/vimrc"
+" old "         if "" != getftype(candidatevimrc)
+" old "             let myvimfilespath="~"
+" old "         endif
+" old "     endif
+" old " endif
+" old " let newruntimepath=myvimfilespath."/vimfiles,$VIMRUNTIME"
+" old " let curvimrc=myvimfilespath."/vimfiles/vimrc"
+" old " "execute "set runtimepath+=".escape(newruntimepath, ' \')
+" old " "execute "source ".escape(curvimrc, ' \')
+" old " execute "set runtimepath+=\"".newruntimepath."\""
+" old " execute "normal :source \"".curvimrc."\""
+" old " 

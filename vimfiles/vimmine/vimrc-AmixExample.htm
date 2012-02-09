@@ -1,0 +1,871 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0029)http://amix.dk/vim/vimrc.html -->
+<HTML xmlns="http://www.w3.org/1999/xhtml"><HEAD><META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<TITLE>~/vim_local/vimrc.html</TITLE>
+<META name="Generator" content="Vim/7.0">
+
+<STYLE type="text/css">
+<!--
+.LineNr { color: #b0b0b0; background-color: #202020; }
+.Number { color: #e0c060; background-color: #202020; }
+.Normal { color: #d0d0d0; background-color: #202020; }
+.Identifier { color: #f0c0f0; background-color: #202020; }
+.Special { color: #f6bf54; background-color: #202020; }
+.Constant { color: #80c0e0; background-color: #202020; }
+.Type { color: #b0d0f0; background-color: #202020; }
+.PreProc { color: #60f080; background-color: #202020; }
+.Statement { color: #c0d8f8; background-color: #202020; }
+pre { color: #d0d0d0; background-color: #202020; }
+body { color: #d0d0d0; background-color: #202020; }
+.Comment { color: #d0d090; background-color: #202020; }
+-->
+</STYLE>
+</HEAD><BODY>
+<P>
+</P><PRE><SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;          _</SPAN>
+<SPAN class="Comment">&quot;      __ | \</SPAN>
+<SPAN class="Comment">&quot;     /   | /</SPAN>
+<SPAN class="Comment">&quot;     \__ | \</SPAN>
+<SPAN class="Comment">&quot; by Amix - <A href="http://amix.dk/">http://amix.dk/</A></SPAN>
+<SPAN class="Comment">&quot;</SPAN>
+<SPAN class="Comment">&quot;</SPAN> <SPAN class="PreProc">Maintainer:</SPAN><SPAN class="Comment"> Amir Salihefendic &lt;amix3k at gmail.com&gt;</SPAN>
+<SPAN class="Comment">&quot;</SPAN> <SPAN class="PreProc">Version:</SPAN><SPAN class="Comment"> 2.7</SPAN>
+<SPAN class="Comment">&quot;</SPAN> <SPAN class="PreProc">Last Change:</SPAN><SPAN class="Comment"> 12/10/06 00:09:21</SPAN>
+<SPAN class="Comment">&quot;</SPAN>
+<SPAN class="Comment">&quot;</SPAN> <SPAN class="PreProc">Sections:</SPAN>
+<SPAN class="Comment">&quot; ----------------------</SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#General" style="color: cyan">General</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Colors and Fonts" style="color: cyan">Colors and Fonts</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Fileformats" style="color: cyan">Fileformats</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#VIM userinterface" style="color: cyan">VIM userinterface</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#Statusline" style="color: cyan;">Statusline</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Visual" style="color: cyan">Visual</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Moving around and tabs" style="color: cyan">Moving around and tabs</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#General Autocommands" style="color: cyan">General Autocommands</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Parenthesis/bracket expanding" style="color: cyan">Parenthesis/bracket expanding</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#General Abbrevs" style="color: cyan">General Abbrevs</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Editing mappings etc." style="color: cyan">Editing mappings etc.</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Command-line config" style="color: cyan">Command-line config</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Buffer realted" style="color: cyan">Buffer realted</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Files and backups" style="color: cyan">Files and backups</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Folding" style="color: cyan">Folding</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Text options" style="color: cyan">Text options</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#Indent" style="color: cyan;">Indent</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Spell checking" style="color: cyan">Spell checking</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Plugin configuration" style="color: cyan">Plugin configuration</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#Yank ring" style="color: cyan;">Yank ring</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#File explorer" style="color: cyan;">File explorer</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#Minibuffer" style="color: cyan;">Minibuffer</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#Tag list (ctags) - not used" style="color: cyan;">Tag list (ctags) - not used</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#LaTeX Suite things" style="color: cyan;">LaTeX Suite things</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Filetype generic" style="color: cyan">Filetype generic</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#Todo" style="color: cyan;">Todo</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#VIM" style="color: cyan;">VIM</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#HTML related" style="color: cyan;">HTML related</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#Ruby & PHP section" style="color: cyan;">Ruby &amp; PHP section</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#Python section" style="color: cyan;">Python section</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#Cheetah section" style="color: cyan;">Cheetah section</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#Vim section" style="color: cyan;">Vim section</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#Java section" style="color: cyan;">Java section</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#JavaScript section" style="color: cyan;">JavaScript section</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#C mappings" style="color: cyan;">C mappings</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#SML" style="color: cyan;">SML</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#Scheme bindings" style="color: cyan;">Scheme bindings</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Snippets" style="color: cyan">Snippets</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#Python" style="color: cyan;">Python</A></SPAN>
+<SPAN class="Comment">&quot; &nbsp;&nbsp; <A href="http://amix.dk/vim/vimrc.html#javaScript" style="color: cyan;">javaScript</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Cope" style="color: cyan">Cope</A></SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#MISC" style="color: cyan">MISC</A></SPAN>
+<SPAN class="Comment">&quot;</SPAN>
+<SPAN class="Comment">&quot;</SPAN>  <SPAN class="PreProc">Tip:</SPAN>
+<SPAN class="Comment">&quot;   If you find anything that you can&#39;t understand than do this:</SPAN>
+<SPAN class="Comment">&quot;   help keyword OR helpgrep keywords</SPAN>
+<SPAN class="Comment">&quot;</SPAN>  <SPAN class="PreProc">Example:</SPAN>
+<SPAN class="Comment">&quot;   Go into command-line mode and type helpgrep nocompatible, ie.</SPAN>
+<SPAN class="Comment">&quot;   :helpgrep nocompatible</SPAN>
+<SPAN class="Comment">&quot;   then press &lt;leader&gt;c to see the results, or :botright cw</SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="General" style="color: #fff">General</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;Get out of VI&#39;s compatible mode..</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">nocompatible</SPAN>
+
+<SPAN class="Comment">&quot;Sets how many lines of history VIM har to remember</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">history</SPAN>=400
+
+<SPAN class="Comment">&quot;Enable filetype plugin</SPAN>
+<SPAN class="Statement">filetype</SPAN> <SPAN class="Type">plugin</SPAN> <SPAN class="Type">on</SPAN>
+<SPAN class="Statement">filetype</SPAN> <SPAN class="Type">indent</SPAN> <SPAN class="Type">on</SPAN>
+
+<SPAN class="Comment">&quot;Set to auto read when a file is changed from the outside</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">autoread</SPAN>
+
+<SPAN class="Comment">&quot;Have the mouse enabled all the time:</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">mouse</SPAN>=a
+
+<SPAN class="Comment">&quot;Set mapleader</SPAN>
+<SPAN class="Statement">let</SPAN> mapleader <SPAN class="Statement">=</SPAN> <SPAN class="Constant">&quot;,&quot;</SPAN>
+<SPAN class="Statement">let</SPAN> g:<SPAN class="Statement">map</SPAN>leader = &quot;,&quot;
+
+<SPAN class="Comment">&quot;Fast saving</SPAN>
+<SPAN class="Statement">nmap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>w :w!<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">nmap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>f :find<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Comment">&quot;Fast reloading of the .vimrc</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>s :source ~/vim_local/vimrc<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Comment">&quot;Fast editing of .vimrc</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>e :e! ~/vim_local/vimrc<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Comment">&quot;When .vimrc is edited, reload it</SPAN>
+<SPAN class="Statement">autocmd</SPAN>! <SPAN class="Type">bufwritepost</SPAN> vimrc <SPAN class="Statement">source</SPAN> ~/vim_local/vimrc
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Colors and Fonts" style="color: #fff">Colors and Fonts</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;Enable syntax hl</SPAN>
+<SPAN class="Statement">syntax</SPAN> <SPAN class="Type">enable</SPAN>
+
+<SPAN class="Comment">&quot;Set font to Monaco 10pt</SPAN>
+<SPAN class="Statement">if</SPAN> <SPAN class="Normal">MySys</SPAN><SPAN class="Statement">()</SPAN> <SPAN class="Statement">==</SPAN> <SPAN class="Constant">&quot;mac&quot;</SPAN>
+  <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">gfn</SPAN>=Bitstream\ Vera\ Sans\ Mono<SPAN class="Statement">:</SPAN>h14
+  <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">nomacatsui</SPAN>
+  <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">termencoding</SPAN>=macroman
+<SPAN class="Statement">elseif</SPAN> <SPAN class="Normal">MySys</SPAN><SPAN class="Statement">()</SPAN> <SPAN class="Statement">==</SPAN> <SPAN class="Constant">&quot;linux&quot;</SPAN>
+  <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">gfn</SPAN>=Monospace\ 11
+<SPAN class="Statement">endif</SPAN>
+
+<SPAN class="Statement">if</SPAN> <SPAN class="Identifier">has</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;gui_running&quot;</SPAN><SPAN class="Statement">)</SPAN>
+  <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">guioptions</SPAN>-=T
+  <SPAN class="Statement">let</SPAN> psc_style<SPAN class="Statement">=</SPAN><SPAN class="Constant">&#39;cool&#39;</SPAN>
+  <SPAN class="Statement">colorscheme</SPAN> ps_color
+<SPAN class="Statement">else</SPAN>
+  <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">background</SPAN>=dark
+  <SPAN class="Statement">colorscheme</SPAN> zellner
+<SPAN class="Statement">endif</SPAN>
+
+<SPAN class="Comment">&quot;Some nice mapping to switch syntax (useful if one mixes different languages in one file)</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>1 :set syntax=cheetah<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>2 :set syntax=xhtml<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>3 :set syntax=python<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>4 :set ft=javascript<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>$ :syntax sync fromstart<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">BufEnter</SPAN> * :<SPAN class="Statement">syntax</SPAN> <SPAN class="Type">sync</SPAN> <SPAN class="Type">fromstart</SPAN>
+
+<SPAN class="Comment">&quot;Highlight current</SPAN>
+<SPAN class="Statement">if</SPAN> <SPAN class="Identifier">has</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;gui_running&quot;</SPAN><SPAN class="Statement">)</SPAN>
+  <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">cursorline</SPAN>
+  <SPAN class="Statement">hi</SPAN> cursorline <SPAN class="Type">guibg</SPAN>=<SPAN class="Number">#333333</SPAN>
+  <SPAN class="Statement">hi</SPAN> CursorColumn <SPAN class="Type">guibg</SPAN>=<SPAN class="Number">#333333</SPAN>
+<SPAN class="Statement">endif</SPAN>
+
+<SPAN class="Comment">&quot;Omni menu colors</SPAN>
+<SPAN class="Statement">hi</SPAN> Pmenu <SPAN class="Type">guibg</SPAN>=<SPAN class="Number">#333333</SPAN>
+<SPAN class="Statement">hi</SPAN> PmenuSel <SPAN class="Type">guibg</SPAN>=<SPAN class="Number">#555555</SPAN> <SPAN class="Type">guifg</SPAN>=<SPAN class="Number">#ffffff</SPAN>
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Fileformats" style="color: #fff">Fileformats</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;Favorite filetypes</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">ffs</SPAN>=unix<SPAN class="Statement">,</SPAN>dos<SPAN class="Statement">,</SPAN>mac
+
+<SPAN class="Statement">nmap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>fd :se ff=dos<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">nmap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>fu :se ff=unix<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="VIM userinterface" style="color: #fff">VIM userinterface</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;Set 7 lines to the curors - when moving vertical..</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">so</SPAN>=7
+
+<SPAN class="Comment">&quot;Turn on WiLd menu</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">wildmenu</SPAN>
+
+<SPAN class="Comment">&quot;Always show current position</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">ruler</SPAN>
+
+<SPAN class="Comment">&quot;The commandbar is 2 high</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">cmdheight</SPAN>=2
+
+<SPAN class="Comment">&quot;Show line number</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">nu</SPAN>
+
+<SPAN class="Comment">&quot;Do not redraw, when running macros.. lazyredraw</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">lz</SPAN>
+
+<SPAN class="Comment">&quot;Change buffer - without saving</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">hid</SPAN>
+
+<SPAN class="Comment">&quot;Set backspace</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">backspace</SPAN>=eol<SPAN class="Statement">,</SPAN>start<SPAN class="Statement">,</SPAN>indent
+
+<SPAN class="Comment">&quot;Bbackspace and cursor keys wrap to</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">whichwrap</SPAN>+=<SPAN class="Special">&lt;</SPAN><SPAN class="Special">,</SPAN><SPAN class="Special">&gt;</SPAN><SPAN class="Statement">,</SPAN>h<SPAN class="Statement">,</SPAN>l
+
+<SPAN class="Comment">&quot;Ignore case when searching</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">ignorecase</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">incsearch</SPAN>
+
+<SPAN class="Comment">&quot;Set magic on</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">magic</SPAN>
+
+<SPAN class="Comment">&quot;No sound on errors.</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">noerrorbells</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">novisualbell</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">t_vb</SPAN>=
+
+<SPAN class="Comment">&quot;show matching bracets</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">showmatch</SPAN>
+
+<SPAN class="Comment">&quot;How many tenths of a second to blink</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">mat</SPAN>=2
+
+<SPAN class="Comment">&quot;Highlight search things</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">hlsearch</SPAN>
+
+<SPAN class="Comment">  &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">  &quot; <A name="Statusline" style="color: #fff">Statusline</A></SPAN>
+<SPAN class="Comment">  &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">  &quot;Always hide the statusline</SPAN>
+  <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">laststatus</SPAN>=2
+
+  <SPAN class="Statement">function</SPAN>! CurDir<SPAN class="Statement">()</SPAN>
+     <SPAN class="Statement">let</SPAN> curdir <SPAN class="Statement">=</SPAN> <SPAN class="Identifier">substitute</SPAN><SPAN class="Statement">(</SPAN>getcwd<SPAN class="Statement">()</SPAN>, <SPAN class="Constant">&#39;/Users/amir/&#39;</SPAN>, <SPAN class="Constant">&quot;~/&quot;</SPAN>, <SPAN class="Constant">&quot;g&quot;</SPAN><SPAN class="Statement">)</SPAN>
+     <SPAN class="Statement">return</SPAN> curdir
+  <SPAN class="Statement">endfunction</SPAN>
+
+<SPAN class="Comment">  &quot;Format the statusline</SPAN>
+  <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">statusline</SPAN>=\ &percnt;F&percnt;m&percnt;r&percnt;h\ &percnt;w\ \ CWD<SPAN class="Statement">:</SPAN>\ &percnt;r&percnt;{CurDir()}&percnt;h\ \ \ Line<SPAN class="Statement">:</SPAN>\ &percnt;l/&percnt;L<SPAN class="Statement">:</SPAN>&percnt;c
+
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Visual" style="color: #fff">Visual</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; From an idea by Michael Naumann</SPAN>
+<SPAN class="Statement">function</SPAN>! VisualSearch<SPAN class="Statement">(</SPAN>direction<SPAN class="Statement">)</SPAN> range
+  <SPAN class="Statement">let</SPAN> l:saved_reg <SPAN class="Statement">=</SPAN> <SPAN class="LineNr">@&quot;</SPAN>
+  <SPAN class="Statement">execute</SPAN> <SPAN class="Constant">&quot;normal! vgvy&quot;</SPAN>
+  <SPAN class="Statement">let</SPAN> l:pattern <SPAN class="Statement">=</SPAN> <SPAN class="Identifier">escape</SPAN><SPAN class="Statement">(</SPAN><SPAN class="LineNr">@&quot;</SPAN>, <SPAN class="Constant">&#39;\\/.*$^~[]&#39;</SPAN><SPAN class="Statement">)</SPAN>
+  <SPAN class="Statement">let</SPAN> l:pattern <SPAN class="Statement">=</SPAN> <SPAN class="Identifier">substitute</SPAN><SPAN class="Statement">(</SPAN>l:pattern, <SPAN class="Constant">&quot;\n$&quot;</SPAN>, <SPAN class="Constant">&quot;&quot;</SPAN>, <SPAN class="Constant">&quot;&quot;</SPAN><SPAN class="Statement">)</SPAN>
+  <SPAN class="Statement">if</SPAN> a:direction <SPAN class="Statement">==</SPAN> <SPAN class="Constant">&#39;b&#39;</SPAN>
+    <SPAN class="Statement">execute</SPAN> <SPAN class="Constant">&quot;normal ?&quot;</SPAN> <SPAN class="Statement">.</SPAN> l:pattern <SPAN class="Statement">.</SPAN> <SPAN class="Constant">&quot;^M&quot;</SPAN>
+  <SPAN class="Statement">else</SPAN>
+    <SPAN class="Statement">execute</SPAN> <SPAN class="Constant">&quot;normal /&quot;</SPAN> <SPAN class="Statement">.</SPAN> l:pattern <SPAN class="Statement">.</SPAN> <SPAN class="Constant">&quot;^M&quot;</SPAN>
+  <SPAN class="Statement">endif</SPAN>
+  <SPAN class="Statement">let</SPAN> @/ <SPAN class="Statement">=</SPAN> l:pattern
+  <SPAN class="Statement">let</SPAN> <SPAN class="LineNr">@&quot;</SPAN> <SPAN class="Statement">=</SPAN> l:saved_reg
+<SPAN class="Statement">endfunction</SPAN>
+
+<SPAN class="Comment">&quot;Basically you press * or # to search for the current selection !! Really useful</SPAN>
+<SPAN class="Statement">vnoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">silent</SPAN><SPAN class="Special">&gt;</SPAN> * :call VisualSearch(&#39;f&#39;)<SPAN class="Special">&lt;</SPAN><SPAN class="Special">CR</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">vnoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">silent</SPAN><SPAN class="Special">&gt;</SPAN> # :call VisualSearch(&#39;b&#39;)<SPAN class="Special">&lt;</SPAN><SPAN class="Special">CR</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Moving around and tabs" style="color: #fff">Moving around and tabs</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;Map space to / and c-space to ?</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">space</SPAN><SPAN class="Special">&gt;</SPAN> /
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-space</SPAN><SPAN class="Special">&gt;</SPAN> ?
+
+<SPAN class="Comment">&quot;Smart way to move btw. windows</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-j</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-W</SPAN><SPAN class="Special">&gt;</SPAN>j
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-k</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-W</SPAN><SPAN class="Special">&gt;</SPAN>k
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-h</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-W</SPAN><SPAN class="Special">&gt;</SPAN>h
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-l</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-W</SPAN><SPAN class="Special">&gt;</SPAN>l
+
+<SPAN class="Comment">&quot;Actually, the tab does not switch buffers, but my arrows</SPAN>
+<SPAN class="Comment">&quot;Bclose function ca be found in </SPAN><SPAN class="Constant">&quot;Buffer related&quot;</SPAN><SPAN class="Comment"> section</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>bd :Bclose<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">down</SPAN><SPAN class="Special">&gt;</SPAN> &lt;leader&gt;bd
+<SPAN class="Comment">&quot;Use the arrows to something usefull</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">right</SPAN><SPAN class="Special">&gt;</SPAN> :bn<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">left</SPAN><SPAN class="Special">&gt;</SPAN> :bp<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Comment">&quot;Tab configuration</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>tn :tabnew &percnt;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>te :tabedit
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>tc :tabclose<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>tm :tabmove
+<SPAN class="Statement">try</SPAN>
+  <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">switchbuf</SPAN>=usetab
+  <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">stal</SPAN>=2
+<SPAN class="Statement">catch</SPAN>
+<SPAN class="Statement">endtry</SPAN>
+
+<SPAN class="Comment">&quot;Moving fast to front, back and 2 sides ;)</SPAN>
+<SPAN class="Statement">imap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">m-$</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>$a
+<SPAN class="Statement">imap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">m-0</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>0i
+<SPAN class="Statement">imap</SPAN> &lt;D-$&gt; <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>$a
+<SPAN class="Statement">imap</SPAN> &lt;D-0&gt; <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>0i
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="General Autocommands" style="color: #fff">General Autocommands</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;Switch to current dir</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>cd :cd &percnt;:p:h<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Parenthesis/bracket expanding" style="color: #fff">Parenthesis/bracket expanding</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Statement">vnoremap</SPAN> $1 <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&gt;a)<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&lt;i(<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Comment">&quot;)</SPAN>
+<SPAN class="Statement">vnoremap</SPAN> $2 <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&gt;a]<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&lt;i[<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">vnoremap</SPAN> $3 <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&gt;a}<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&lt;i{<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">vnoremap</SPAN> $$ <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&gt;a&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&lt;i&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">vnoremap</SPAN> $q <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&gt;a&#39;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&lt;i&#39;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">vnoremap</SPAN> $w <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&gt;a&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&lt;i&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Comment">&quot;Map auto complete of (, &quot;, &#39;, [</SPAN>
+<SPAN class="Statement">inoremap</SPAN> $1 ()<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>:let leavechar=&quot;)&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>i
+<SPAN class="Statement">inoremap</SPAN> $2 []<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>:let leavechar=&quot;]&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>i
+<SPAN class="Statement">inoremap</SPAN> $4 {<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>o}<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>:let leavechar=&quot;}&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>O
+<SPAN class="Statement">inoremap</SPAN> $3 {}<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>:let leavechar=&quot;}&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>i
+<SPAN class="Statement">inoremap</SPAN> $q &#39;&#39;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>:let leavechar=&quot;&#39;&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>i
+<SPAN class="Statement">inoremap</SPAN> $w &quot;&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>:let leavechar=&#39;&quot;&#39;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>i
+<SPAN class="Statement">au</SPAN> <SPAN class="Type">BufNewFile</SPAN>,<SPAN class="Type">BufRead</SPAN> *.\(vim\)\@! <SPAN class="Statement">inoremap</SPAN> &quot; &quot;&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>:let leavechar=&#39;&quot;&#39;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>i
+<SPAN class="Statement">au</SPAN> <SPAN class="Type">BufNewFile</SPAN>,<SPAN class="Type">BufRead</SPAN> *.\(txt\)\@! <SPAN class="Statement">inoremap</SPAN> &#39; &#39;&#39;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>:let leavechar=&quot;&#39;&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>i
+
+<SPAN class="Statement">imap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">m-l</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>:exec &quot;normal f&quot; . leavechar<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>a
+<SPAN class="Statement">imap</SPAN> &lt;d-l&gt; <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>:exec &quot;normal f&quot; . leavechar<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>a
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="General Abbrevs" style="color: #fff">General Abbrevs</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;My information</SPAN>
+<SPAN class="Statement">iab</SPAN> xdate <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Identifier">strftime</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;&percnt;d/&percnt;m/&percnt;y &percnt;H:&percnt;M:&percnt;S&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">iab</SPAN> xname Amir Salihefendic
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Editing mappings etc." style="color: #fff">Editing mappings etc.</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;Remap VIM 0</SPAN>
+<SPAN class="Statement">map</SPAN> 0 ^
+
+<SPAN class="Comment">&quot;Move a line of text using control</SPAN>
+<SPAN class="Statement">nmap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">M-j</SPAN><SPAN class="Special">&gt;</SPAN> mz:m+<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>`z
+<SPAN class="Statement">nmap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">M-k</SPAN><SPAN class="Special">&gt;</SPAN> mz:m-2<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>`z
+<SPAN class="Statement">vmap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">M-j</SPAN><SPAN class="Special">&gt;</SPAN> :m&#39;&gt;+<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>`&lt;my`&gt;mzgv`yo`z
+<SPAN class="Statement">vmap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">M-k</SPAN><SPAN class="Special">&gt;</SPAN> :m&#39;&lt;-2<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>`&gt;my`&lt;mzgv`yo`z
+
+<SPAN class="Statement">if</SPAN> <SPAN class="Normal">MySys</SPAN><SPAN class="Statement">()</SPAN> <SPAN class="Statement">==</SPAN> <SPAN class="Constant">&quot;mac&quot;</SPAN>
+  <SPAN class="Statement">nmap</SPAN> &lt;D-j&gt; <SPAN class="Special">&lt;</SPAN><SPAN class="Special">M-j</SPAN><SPAN class="Special">&gt;</SPAN>
+  <SPAN class="Statement">nmap</SPAN> &lt;D-k&gt; <SPAN class="Special">&lt;</SPAN><SPAN class="Special">M-k</SPAN><SPAN class="Special">&gt;</SPAN>
+  <SPAN class="Statement">vmap</SPAN> &lt;D-j&gt; <SPAN class="Special">&lt;</SPAN><SPAN class="Special">M-j</SPAN><SPAN class="Special">&gt;</SPAN>
+  <SPAN class="Statement">vmap</SPAN> &lt;D-k&gt; <SPAN class="Special">&lt;</SPAN><SPAN class="Special">M-k</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">endif</SPAN>
+
+<SPAN class="Statement">func</SPAN>! DeleteTrailingWS<SPAN class="Statement">()</SPAN>
+  <SPAN class="Statement">exe</SPAN> <SPAN class="Constant">&quot;normal mz&quot;</SPAN>
+  <SPAN class="Number">&percnt;</SPAN><SPAN class="Statement">s</SPAN><SPAN class="Special">/</SPAN>\s\+$<SPAN class="Special">//</SPAN><SPAN class="Special">ge</SPAN>
+  <SPAN class="Statement">exe</SPAN> <SPAN class="Constant">&quot;normal `z&quot;</SPAN>
+<SPAN class="Statement">endfunc</SPAN>
+<SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">BufWrite</SPAN> *.py :<SPAN class="Statement">call</SPAN> <SPAN class="Normal">DeleteTrailingWS</SPAN><SPAN class="Statement">()</SPAN>
+
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">completeopt</SPAN>=menu
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Command-line config" style="color: #fff">Command-line config</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Statement">func</SPAN>! Cwd<SPAN class="Statement">()</SPAN>
+  <SPAN class="Statement">let</SPAN> cwd <SPAN class="Statement">=</SPAN> <SPAN class="Identifier">getcwd</SPAN><SPAN class="Statement">()</SPAN>
+  <SPAN class="Statement">return</SPAN> <SPAN class="LineNr">&quot;e </SPAN><SPAN class="Comment">&quot; . cwd </SPAN>
+<SPAN class="Statement">endfunc</SPAN>
+
+<SPAN class="Statement">func</SPAN>! DeleteTillSlash<SPAN class="Statement">()</SPAN>
+  <SPAN class="Statement">let</SPAN> g:cmd <SPAN class="Statement">=</SPAN> <SPAN class="Identifier">getcmdline</SPAN><SPAN class="Statement">()</SPAN>
+  <SPAN class="Statement">if</SPAN> <SPAN class="Normal">MySys</SPAN><SPAN class="Statement">()</SPAN> <SPAN class="Statement">==</SPAN> <SPAN class="Constant">&quot;linux&quot;</SPAN> <SPAN class="Statement">||</SPAN> <SPAN class="Normal">MySys</SPAN><SPAN class="Statement">()</SPAN> <SPAN class="Statement">==</SPAN> <SPAN class="Constant">&quot;mac&quot;</SPAN>
+    <SPAN class="Statement">let</SPAN> g:cmd_edited <SPAN class="Statement">=</SPAN> <SPAN class="Identifier">substitute</SPAN><SPAN class="Statement">(</SPAN>g:cmd, <SPAN class="Constant">&quot;</SPAN><SPAN class="Constant">\\</SPAN><SPAN class="Constant">(.*\[/\]</SPAN><SPAN class="Constant">\\</SPAN><SPAN class="Constant">).*&quot;</SPAN>, <SPAN class="Constant">&quot;</SPAN><SPAN class="Constant">\\</SPAN><SPAN class="Constant">1&quot;</SPAN>, <SPAN class="Constant">&quot;&quot;</SPAN><SPAN class="Statement">)</SPAN>
+  <SPAN class="Statement">else</SPAN>
+    <SPAN class="Statement">let</SPAN> g:cmd_edited <SPAN class="Statement">=</SPAN> <SPAN class="Identifier">substitute</SPAN><SPAN class="Statement">(</SPAN>g:cmd, <SPAN class="Constant">&quot;</SPAN><SPAN class="Constant">\\</SPAN><SPAN class="Constant">(.*\[</SPAN><SPAN class="Constant">\\\\</SPAN><SPAN class="Constant">]</SPAN><SPAN class="Constant">\\</SPAN><SPAN class="Constant">).*&quot;</SPAN>, <SPAN class="Constant">&quot;</SPAN><SPAN class="Constant">\\</SPAN><SPAN class="Constant">1&quot;</SPAN>, <SPAN class="Constant">&quot;&quot;</SPAN><SPAN class="Statement">)</SPAN>
+  <SPAN class="Statement">endif</SPAN>
+  <SPAN class="Statement">if</SPAN> g:cmd <SPAN class="Statement">==</SPAN> g:cmd_edited
+    <SPAN class="Statement">if</SPAN> <SPAN class="Normal">MySys</SPAN><SPAN class="Statement">()</SPAN> <SPAN class="Statement">==</SPAN> <SPAN class="Constant">&quot;linux&quot;</SPAN> <SPAN class="Statement">||</SPAN> <SPAN class="Normal">MySys</SPAN><SPAN class="Statement">()</SPAN> <SPAN class="Statement">==</SPAN> <SPAN class="Constant">&quot;mac&quot;</SPAN>
+      <SPAN class="Statement">let</SPAN> g:cmd_edited <SPAN class="Statement">=</SPAN> <SPAN class="Identifier">substitute</SPAN><SPAN class="Statement">(</SPAN>g:cmd, <SPAN class="Constant">&quot;</SPAN><SPAN class="Constant">\\</SPAN><SPAN class="Constant">(.*\[/\]</SPAN><SPAN class="Constant">\\</SPAN><SPAN class="Constant">).*/&quot;</SPAN>, <SPAN class="Constant">&quot;</SPAN><SPAN class="Constant">\\</SPAN><SPAN class="Constant">1&quot;</SPAN>, <SPAN class="Constant">&quot;&quot;</SPAN><SPAN class="Statement">)</SPAN>
+    <SPAN class="Statement">else</SPAN>
+      <SPAN class="Statement">let</SPAN> g:cmd_edited <SPAN class="Statement">=</SPAN> <SPAN class="Identifier">substitute</SPAN><SPAN class="Statement">(</SPAN>g:cmd, <SPAN class="Constant">&quot;</SPAN><SPAN class="Constant">\\</SPAN><SPAN class="Constant">(.*\[</SPAN><SPAN class="Constant">\\\\</SPAN><SPAN class="Constant">\]</SPAN><SPAN class="Constant">\\</SPAN><SPAN class="Constant">).*\[</SPAN><SPAN class="Constant">\\\\</SPAN><SPAN class="Constant">\]&quot;</SPAN>, <SPAN class="Constant">&quot;</SPAN><SPAN class="Constant">\\</SPAN><SPAN class="Constant">1&quot;</SPAN>, <SPAN class="Constant">&quot;&quot;</SPAN><SPAN class="Statement">)</SPAN>
+    <SPAN class="Statement">endif</SPAN>
+  <SPAN class="Statement">endif</SPAN>
+  <SPAN class="Statement">return</SPAN> g:cmd_edited
+<SPAN class="Statement">endfunc</SPAN>
+
+<SPAN class="Statement">func</SPAN>! CurrentFileDir<SPAN class="Statement">(</SPAN>cmd<SPAN class="Statement">)</SPAN>
+  <SPAN class="Statement">return</SPAN> a:cmd <SPAN class="Statement">.</SPAN> <SPAN class="Constant">&quot; &quot;</SPAN> <SPAN class="Statement">.</SPAN> <SPAN class="Identifier">expand</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;&percnt;:p:h&quot;</SPAN><SPAN class="Statement">)</SPAN> <SPAN class="Statement">.</SPAN> <SPAN class="Constant">&quot;/&quot;</SPAN>
+<SPAN class="Statement">endfunc</SPAN>
+
+<SPAN class="Comment">&quot;Smart mappings on the command line</SPAN>
+<SPAN class="Statement">cno</SPAN> $h e ~/
+<SPAN class="Statement">cno</SPAN> $d e ~/Desktop/
+<SPAN class="Statement">cno</SPAN> $j e ./
+
+<SPAN class="Statement">cno</SPAN> $q <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-</SPAN><SPAN class="Special">\&gt;</SPAN>eDeleteTillSlash()<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Statement">cno</SPAN> $c e <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-</SPAN><SPAN class="Special">\&gt;</SPAN>eCurrentFileDir(&quot;e&quot;)<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Statement">cno</SPAN> $tc <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-</SPAN><SPAN class="Special">\&gt;</SPAN>eCurrentFileDir(&quot;tabnew&quot;)<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">cno</SPAN> $th tabnew ~/
+<SPAN class="Statement">cno</SPAN> $td tabnew ~/Desktop/
+
+<SPAN class="Comment">&quot;Bash like</SPAN>
+<SPAN class="Statement">cnoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-A</SPAN><SPAN class="Special">&gt;</SPAN>    <SPAN class="Special">&lt;</SPAN><SPAN class="Special">Home</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">cnoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-E</SPAN><SPAN class="Special">&gt;</SPAN>    <SPAN class="Special">&lt;</SPAN><SPAN class="Special">End</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">cnoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-K</SPAN><SPAN class="Special">&gt;</SPAN>    <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-U</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Buffer realted" style="color: #fff">Buffer realted</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;Fast open a buffer by search for a name</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-q</SPAN><SPAN class="Special">&gt;</SPAN> :sb
+
+<SPAN class="Comment">&quot;Open a dummy buffer for paste</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>q :e ~/buffer<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Comment">&quot;Restore cursor to file position in previous editing session</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">viminfo</SPAN>=&#39;10<SPAN class="Statement">,</SPAN>\&quot;100<SPAN class="Statement">,:</SPAN>20<SPAN class="Statement">,</SPAN>&percnt;<SPAN class="Statement">,</SPAN>n~/.viminfo
+<SPAN class="Statement">au</SPAN> <SPAN class="Type">BufReadPost</SPAN> * <SPAN class="Statement">if</SPAN> <SPAN class="Identifier">line</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;&#39;\&quot;&quot;</SPAN><SPAN class="Statement">)</SPAN> <SPAN class="Statement">&gt;</SPAN> <SPAN class="Number">0</SPAN>|<SPAN class="Statement">if</SPAN> <SPAN class="Identifier">line</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;&#39;\&quot;&quot;</SPAN><SPAN class="Statement">)</SPAN> <SPAN class="Statement">&lt;=</SPAN> <SPAN class="Identifier">line</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;$&quot;</SPAN><SPAN class="Statement">)</SPAN>|<SPAN class="Statement">exe</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;norm &#39;\&quot;&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Statement">|else</SPAN>|<SPAN class="Statement">exe</SPAN> <SPAN class="Constant">&quot;norm $&quot;</SPAN><SPAN class="Statement">|endif</SPAN>|<SPAN class="Statement">endif</SPAN>
+
+<SPAN class="Comment">&quot; Buffer - reverse everything ... :)</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">F9</SPAN><SPAN class="Special">&gt;</SPAN> ggVGg?
+
+<SPAN class="Comment">&quot; Don&#39;t close window, when deleting a buffer</SPAN>
+<SPAN class="Statement">command</SPAN>! Bclose <SPAN class="Statement">call</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">SID</SPAN><SPAN class="Special">&gt;</SPAN><SPAN class="Normal">BufcloseCloseIt</SPAN>()
+
+<SPAN class="Statement">function</SPAN>! <SPAN class="Special">&lt;SID&gt;</SPAN>BufcloseCloseIt<SPAN class="Statement">()</SPAN>
+   <SPAN class="Statement">let</SPAN> l:currentBufNum <SPAN class="Statement">=</SPAN> <SPAN class="Identifier">bufnr</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;&percnt;&quot;</SPAN><SPAN class="Statement">)</SPAN>
+   <SPAN class="Statement">let</SPAN> l:alternateBufNum <SPAN class="Statement">=</SPAN> <SPAN class="Identifier">bufnr</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;#&quot;</SPAN><SPAN class="Statement">)</SPAN>
+
+   <SPAN class="Statement">if</SPAN> <SPAN class="Identifier">buflisted</SPAN><SPAN class="Statement">(</SPAN>l:alternateBufNum<SPAN class="Statement">)</SPAN>
+     <SPAN class="Statement">buffer</SPAN> #
+   <SPAN class="Statement">else</SPAN>
+     <SPAN class="Statement">bnext</SPAN>
+   <SPAN class="Statement">endif</SPAN>
+
+   <SPAN class="Statement">if</SPAN> <SPAN class="Identifier">bufnr</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;&percnt;&quot;</SPAN><SPAN class="Statement">)</SPAN> <SPAN class="Statement">==</SPAN> l:currentBufNum
+     <SPAN class="Statement">new</SPAN>
+   <SPAN class="Statement">endif</SPAN>
+
+   <SPAN class="Statement">if</SPAN> <SPAN class="Identifier">buflisted</SPAN><SPAN class="Statement">(</SPAN>l:currentBufNum<SPAN class="Statement">)</SPAN>
+     <SPAN class="Statement">execute</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;bdelete! &quot;</SPAN><SPAN class="Statement">.</SPAN>l:currentBufNum<SPAN class="Statement">)</SPAN>
+   <SPAN class="Statement">endif</SPAN>
+<SPAN class="Statement">endfunction</SPAN>
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Files and backups" style="color: #fff">Files and backups</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;Turn backup off</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">nobackup</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">nowb</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">noswapfile</SPAN>
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Folding" style="color: #fff">Folding</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;Enable folding, I find it very useful</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">nofen</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">fdl</SPAN>=0
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Text options" style="color: #fff">Text options</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">expandtab</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">shiftwidth</SPAN>=2
+
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>t2 :set shiftwidth=2<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>t4 :set shiftwidth=4<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> html,python,vim,javascript <SPAN class="Statement">setl</SPAN> <SPAN class="PreProc">shiftwidth</SPAN>=2
+<SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> html,python,vim,javascript <SPAN class="Statement">setl</SPAN> <SPAN class="PreProc">tabstop</SPAN>=2
+<SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">setl</SPAN> <SPAN class="PreProc">shiftwidth</SPAN>=4
+<SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">setl</SPAN> <SPAN class="PreProc">tabstop</SPAN>=4
+
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">smarttab</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">lbr</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">tw</SPAN>=500
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Indent" style="color: #fff">Indent</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot;Auto indent</SPAN>
+   <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">ai</SPAN>
+
+<SPAN class="Comment">   &quot;Smart indet</SPAN>
+   <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">si</SPAN>
+
+<SPAN class="Comment">   &quot;C-style indeting</SPAN>
+   <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">cindent</SPAN>
+
+<SPAN class="Comment">   &quot;Wrap lines</SPAN>
+   <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">wrap</SPAN>
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Spell checking" style="color: #fff">Spell checking</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>sn ]s
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>sp [s
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>sa zg
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>s? z=
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Plugin configuration" style="color: #fff">Plugin configuration</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Vim Grep" style="color: #fff">Vim Grep</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">let</SPAN> Grep_Skip_Dirs <SPAN class="Statement">=</SPAN> <SPAN class="Constant">&#39;RCS CVS SCCS .svn&#39;</SPAN>
+   <SPAN class="Statement">let</SPAN> Grep_Cygwin_Find <SPAN class="Statement">=</SPAN> <SPAN class="Number">1</SPAN>
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Yank Ring" style="color: #fff">Yank Ring</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>y :YRShow<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="File explorer" style="color: #fff">File explorer</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot;Split vertically</SPAN>
+   <SPAN class="Statement">let</SPAN> g:explVertical<SPAN class="Statement">=</SPAN><SPAN class="Number">1</SPAN>
+
+<SPAN class="Comment">   &quot;Window size</SPAN>
+   <SPAN class="Statement">let</SPAN> g:explWinSize<SPAN class="Statement">=</SPAN><SPAN class="Number">35</SPAN>
+
+   <SPAN class="Statement">let</SPAN> g:explSplitLeft<SPAN class="Statement">=</SPAN><SPAN class="Number">1</SPAN>
+   <SPAN class="Statement">let</SPAN> g:explSplitBelow<SPAN class="Statement">=</SPAN><SPAN class="Number">1</SPAN>
+
+<SPAN class="Comment">   &quot;Hide some files</SPAN>
+   <SPAN class="Statement">let</SPAN> g:explHideFiles<SPAN class="Statement">=</SPAN><SPAN class="Constant">&#39;^\.,.*\.class$,.*\.swp$,.*\.pyc$,.*\.swo$,\.DS_Store$&#39;</SPAN>
+
+<SPAN class="Comment">   &quot;Hide the help thing..</SPAN>
+   <SPAN class="Statement">let</SPAN> g:explDetailedHelp<SPAN class="Statement">=</SPAN><SPAN class="Number">0</SPAN>
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Minibuffer" style="color: #fff">Minibuffer</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">let</SPAN> g:miniBufExplModSelTarget <SPAN class="Statement">=</SPAN> <SPAN class="Number">1</SPAN>
+   <SPAN class="Statement">let</SPAN> g:miniBufExplorerMoreThanOne <SPAN class="Statement">=</SPAN> <SPAN class="Number">2</SPAN>
+   <SPAN class="Statement">let</SPAN> g:miniBufExplModSelTarget <SPAN class="Statement">=</SPAN> <SPAN class="Number">0</SPAN>
+   <SPAN class="Statement">let</SPAN> g:miniBufExplUseSingleClick <SPAN class="Statement">=</SPAN> <SPAN class="Number">1</SPAN>
+   <SPAN class="Statement">let</SPAN> g:miniBufExplMapWindowNavVim <SPAN class="Statement">=</SPAN> <SPAN class="Number">1</SPAN>
+   <SPAN class="Statement">let</SPAN> g:miniBufExplVSplit <SPAN class="Statement">=</SPAN> <SPAN class="Number">25</SPAN>
+   <SPAN class="Statement">let</SPAN> g:miniBufExplSplitBelow<SPAN class="Statement">=</SPAN><SPAN class="Number">1</SPAN>
+
+   <SPAN class="Statement">let</SPAN> g:bufExplorerSortBy <SPAN class="Statement">=</SPAN> <SPAN class="Constant">&quot;name&quot;</SPAN>
+
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">BufRead</SPAN>,<SPAN class="Type">BufNew</SPAN> :call UMiniBufExplorer
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Tag list (ctags) - not used" style="color: #fff">Tag list (ctags) - not used</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot;let Tlist_Ctags_Cmd = </SPAN><SPAN class="Constant">&quot;/sw/bin/ctags-exuberant&quot;</SPAN>
+<SPAN class="Comment">   &quot;let Tlist_Sort_Type = </SPAN><SPAN class="Constant">&quot;name&quot;</SPAN>
+<SPAN class="Comment">   &quot;let Tlist_Show_Menu = 1</SPAN>
+<SPAN class="Comment">   &quot;map &lt;leader&gt;t :Tlist&lt;cr&gt;</SPAN>
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="LaTeX Suite things" style="color: #fff">LaTeX Suite things</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">grepprg</SPAN>=grep\ -nH\ $*
+   <SPAN class="Statement">let</SPAN> g:Tex_DefaultTargetFormat<SPAN class="Statement">=</SPAN><SPAN class="Constant">&quot;pdf&quot;</SPAN>
+   <SPAN class="Statement">let</SPAN> g:Tex_ViewRule_pdf<SPAN class="Statement">=</SPAN><SPAN class="Constant">&#39;xpdf&#39;</SPAN>
+
+<SPAN class="Comment">   &quot;Bindings</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> tex <SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">silent</SPAN><SPAN class="Special">&gt;&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">space</SPAN><SPAN class="Special">&gt;</SPAN> :w!<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN> :silent! call Tex_RunLaTeX()<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Comment">   &quot;Auto complete some things ;)</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> tex <SPAN class="Statement">inoremap</SPAN> $i \indent
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> tex <SPAN class="Statement">inoremap</SPAN> $* \cdot
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> tex <SPAN class="Statement">inoremap</SPAN> $i \item
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> tex <SPAN class="Statement">inoremap</SPAN> $m \[<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>\]<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>O
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Filetype generic" style="color: #fff">Filetype generic</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Todo" style="color: #fff">Todo</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">BufNewFile</SPAN>,<SPAN class="Type">BufRead</SPAN> *.todo <SPAN class="Statement">so</SPAN> ~/vim_local/<SPAN class="Statement">syntax</SPAN>/amido<SPAN class="Statement">.</SPAN><SPAN class="Statement">vim</SPAN>
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="VIM" style="color: #fff">VIM</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> vim <SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">space</SPAN><SPAN class="Special">&gt;</SPAN> :w!<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>:source &percnt;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="HTML related" style="color: #fff">HTML related</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; HTML entities - used by xml edit plugin</SPAN>
+   <SPAN class="Statement">let</SPAN> xml_use_xhtml <SPAN class="Statement">=</SPAN> <SPAN class="Number">1</SPAN>
+<SPAN class="Comment">   &quot;let xml_no_auto_nesting = 1</SPAN>
+
+<SPAN class="Comment">   &quot;To HTML</SPAN>
+   <SPAN class="Statement">let</SPAN> html_use_css <SPAN class="Statement">=</SPAN> <SPAN class="Number">1</SPAN>
+   <SPAN class="Statement">let</SPAN> html_number_lines <SPAN class="Statement">=</SPAN> <SPAN class="Number">0</SPAN>
+   <SPAN class="Statement">let</SPAN> use_xhtml <SPAN class="Statement">=</SPAN> <SPAN class="Number">1</SPAN>
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Ruby &amp; PHP section" style="color: #fff">Ruby &amp; PHP section</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> ruby <SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">space</SPAN><SPAN class="Special">&gt;</SPAN> :w!<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>:!ruby &percnt;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> php <SPAN class="Statement">compiler</SPAN> php
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> php <SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">space</SPAN><SPAN class="Special">&gt;</SPAN> &lt;leader&gt;cd:w<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>:make &percnt;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Python section" style="color: #fff">Python section</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot;Run the current buffer in python - ie. on leader+space</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">so</SPAN> ~/vim_local/<SPAN class="Statement">syntax</SPAN>/<SPAN class="Statement">python</SPAN><SPAN class="Statement">.</SPAN><SPAN class="Statement">vim</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">space</SPAN><SPAN class="Special">&gt;</SPAN> :w!<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>:!python &percnt;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">so</SPAN> ~/vim_local/plugin/python_fold<SPAN class="Statement">.</SPAN><SPAN class="Statement">vim</SPAN>
+
+<SPAN class="Comment">   &quot;Set some bindings up for &#39;compile&#39; of python</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">set</SPAN> makeprg<SPAN class="Statement">=</SPAN><SPAN class="Statement">python</SPAN>\ <SPAN class="Statement">-</SPAN><SPAN class="Statement">c</SPAN>\ \&quot;import\ py_compile,sys;\ sys<SPAN class="Statement">.</SPAN>stderr<SPAN class="Statement">=</SPAN>sys<SPAN class="Statement">.</SPAN>stdout;\ py_compile<SPAN class="Statement">.</SPAN><SPAN class="Statement">compile</SPAN><SPAN class="Statement">(</SPAN>r&#39;&percnt;<SPAN class="Constant">&#39;</SPAN><SPAN class="Statement">)</SPAN>\&quot;
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">efm</SPAN>=&percnt;C\ &percnt;.&percnt;#<SPAN class="Statement">,</SPAN>&percnt;A\ \ File\ \&quot;&percnt;f\&quot;\\<SPAN class="Statement">,</SPAN>\ line\ &percnt;l&percnt;.&percnt;#<SPAN class="Statement">,</SPAN>&percnt;Z&percnt;[&percnt;^\ ]&percnt;\\@=&percnt;m
+
+<SPAN class="Comment">   &quot;Python iMaps</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">cindent</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $r return
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $s self
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $c ##<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>#<SPAN class="Special">&lt;</SPAN><SPAN class="Special">space</SPAN><SPAN class="Special">&gt;&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>#<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>kla
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $i import
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $p print
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $d &quot;&quot;&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>&quot;&quot;&quot;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>O
+
+<SPAN class="Comment">   &quot;Run in the Python interpreter</SPAN>
+   <SPAN class="Statement">function</SPAN>! Python_Eval_VSplit<SPAN class="Statement">()</SPAN> range
+     <SPAN class="Statement">let</SPAN> src <SPAN class="Statement">=</SPAN> <SPAN class="Identifier">tempname</SPAN><SPAN class="Statement">()</SPAN>
+     <SPAN class="Statement">let</SPAN> dst <SPAN class="Statement">=</SPAN> <SPAN class="Identifier">tempname</SPAN><SPAN class="Statement">()</SPAN>
+     <SPAN class="Statement">execute</SPAN> <SPAN class="Constant">&quot;: &quot;</SPAN> <SPAN class="Statement">.</SPAN> a:firstline <SPAN class="Statement">.</SPAN> <SPAN class="Constant">&quot;,&quot;</SPAN> <SPAN class="Statement">.</SPAN> a:lastline <SPAN class="Statement">.</SPAN> <SPAN class="Constant">&quot;w &quot;</SPAN> <SPAN class="Statement">.</SPAN> src
+     <SPAN class="Statement">execute</SPAN> <SPAN class="Constant">&quot;:!python &quot;</SPAN> <SPAN class="Statement">.</SPAN> src <SPAN class="Statement">.</SPAN> <SPAN class="Constant">&quot; &gt; &quot;</SPAN> <SPAN class="Statement">.</SPAN> dst
+     <SPAN class="Statement">execute</SPAN> <SPAN class="Constant">&quot;:pedit! &quot;</SPAN> <SPAN class="Statement">.</SPAN> dst
+   <SPAN class="Statement">endfunction</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">vmap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">F7</SPAN><SPAN class="Special">&gt;</SPAN> :call Python_Eval_VSplit()<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Cheetah section" style="color: #fff">Cheetah section</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> cheetah <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">ft</SPAN>=xml
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> cheetah <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">syntax</SPAN>=cheetah
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Vim section" style="color: #fff">Vim section</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> vim <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">nofen</SPAN>
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Java section" style="color: #fff">Java section</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-t</SPAN><SPAN class="Special">&gt;</SPAN> System.out.println();<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>hi
+
+<SPAN class="Comment">   &quot;Java comments</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">source</SPAN> ~/vim_local/macros/jcommenter<SPAN class="Statement">.</SPAN><SPAN class="Statement">vim</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">let</SPAN> b:jcommenter_class_author<SPAN class="Statement">=</SPAN><SPAN class="Constant">&#39;Amir Salihefendic (amix@amix.dk)&#39;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">let</SPAN> b:jcommenter_file_author<SPAN class="Statement">=</SPAN><SPAN class="Constant">&#39;Amir Salihefendic (amix@amix.dk)&#39;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">F2</SPAN><SPAN class="Special">&gt;</SPAN> :call JCommentWriter()<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Comment">   &quot;Abbr&#39;z</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $pr private
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $r return
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $pu public
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $i import
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $b boolean
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $v void
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $s String
+
+<SPAN class="Comment">   &quot;Folding</SPAN>
+   <SPAN class="Statement">function</SPAN>! JavaFold<SPAN class="Statement">()</SPAN>
+     <SPAN class="Statement">setl</SPAN> <SPAN class="PreProc">foldmethod</SPAN>=syntax
+     <SPAN class="Statement">setl</SPAN> <SPAN class="PreProc">foldlevelstart</SPAN>=1
+     <SPAN class="Statement">syn</SPAN> <SPAN class="Type">region</SPAN> foldBraces <SPAN class="Type">start</SPAN>=<SPAN class="Constant">/{/</SPAN> <SPAN class="Type">end</SPAN>=<SPAN class="Constant">/}/</SPAN> <SPAN class="Special">transparent</SPAN> <SPAN class="Special">fold</SPAN> <SPAN class="Special">keepend</SPAN> <SPAN class="Special">extend</SPAN>
+     <SPAN class="Statement">syn</SPAN> <SPAN class="Type">match</SPAN> foldImports <SPAN class="Constant">/</SPAN><SPAN class="LineNr">\(</SPAN><SPAN class="Constant">\n\?import.\+;\n</SPAN><SPAN class="LineNr">\)</SPAN><SPAN class="Constant">\+/</SPAN> <SPAN class="Special">transparent</SPAN> <SPAN class="Special">fold</SPAN>
+
+     <SPAN class="Statement">function</SPAN>! FoldText<SPAN class="Statement">()</SPAN>
+       <SPAN class="Statement">return</SPAN> <SPAN class="Identifier">substitute</SPAN><SPAN class="Statement">(</SPAN>getline<SPAN class="Statement">(</SPAN>v:foldstart<SPAN class="Statement">)</SPAN>, <SPAN class="Constant">&#39;{.*&#39;</SPAN>, <SPAN class="Constant">&#39;{...}&#39;</SPAN>, <SPAN class="Constant">&#39;&#39;</SPAN><SPAN class="Statement">)</SPAN>
+     <SPAN class="Statement">endfunction</SPAN>
+     <SPAN class="Statement">setl</SPAN> <SPAN class="PreProc">foldtext</SPAN>=FoldText()
+   <SPAN class="Statement">endfunction</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">call</SPAN> <SPAN class="Normal">JavaFold</SPAN><SPAN class="Statement">()</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">setl</SPAN> <SPAN class="PreProc">fen</SPAN>
+
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">BufEnter</SPAN> *.sablecc,*.scc <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">ft</SPAN>=sablecc
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="JavaScript section" style="color: #fff">JavaScript section</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> javascript <SPAN class="Statement">so</SPAN> ~/vim_local/<SPAN class="Statement">syntax</SPAN>/javascript<SPAN class="Statement">.</SPAN><SPAN class="Statement">vim</SPAN>
+   <SPAN class="Statement">function</SPAN>! JavaScriptFold<SPAN class="Statement">()</SPAN>
+     <SPAN class="Statement">setl</SPAN> <SPAN class="PreProc">foldmethod</SPAN>=syntax
+     <SPAN class="Statement">setl</SPAN> <SPAN class="PreProc">foldlevelstart</SPAN>=1
+     <SPAN class="Statement">syn</SPAN> <SPAN class="Type">region</SPAN> foldBraces <SPAN class="Type">start</SPAN>=<SPAN class="Constant">/{/</SPAN> <SPAN class="Type">end</SPAN>=<SPAN class="Constant">/}/</SPAN> <SPAN class="Special">transparent</SPAN> <SPAN class="Special">fold</SPAN> <SPAN class="Special">keepend</SPAN> <SPAN class="Special">extend</SPAN>
+
+     <SPAN class="Statement">function</SPAN>! FoldText<SPAN class="Statement">()</SPAN>
+       <SPAN class="Statement">return</SPAN> <SPAN class="Identifier">substitute</SPAN><SPAN class="Statement">(</SPAN>getline<SPAN class="Statement">(</SPAN>v:foldstart<SPAN class="Statement">)</SPAN>, <SPAN class="Constant">&#39;{.*&#39;</SPAN>, <SPAN class="Constant">&#39;{...}&#39;</SPAN>, <SPAN class="Constant">&#39;&#39;</SPAN><SPAN class="Statement">)</SPAN>
+     <SPAN class="Statement">endfunction</SPAN>
+     <SPAN class="Statement">setl</SPAN> <SPAN class="PreProc">foldtext</SPAN>=FoldText()
+   <SPAN class="Statement">endfunction</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> javascript <SPAN class="Statement">call</SPAN> <SPAN class="Normal">JavaScriptFold</SPAN><SPAN class="Statement">()</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> javascript <SPAN class="Statement">setl</SPAN> <SPAN class="PreProc">fen</SPAN>
+
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> javascript <SPAN class="Statement">imap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-t</SPAN><SPAN class="Special">&gt;</SPAN> console.log();<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>hi
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> javascript <SPAN class="Statement">imap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-a</SPAN><SPAN class="Special">&gt;</SPAN> alert();<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>hi
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> javascript <SPAN class="Statement">setl</SPAN> <SPAN class="PreProc">nocindent</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> javascript <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $r return
+
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> javascript <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $d //<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>//<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>//<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>ka<SPAN class="Special">&lt;</SPAN><SPAN class="Special">space</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> javascript <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> $c /**<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;&lt;</SPAN><SPAN class="Special">space</SPAN><SPAN class="Special">&gt;&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>**/<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>ka
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="HTML" style="color: #fff">HTML</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> html,cheetah <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">ft</SPAN>=xml
+   <SPAN class="Statement">au</SPAN> <SPAN class="Type">FileType</SPAN> html,cheetah <SPAN class="Statement">set</SPAN> <SPAN class="PreProc">syntax</SPAN>=html
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="C mappings" style="color: #fff">C mappings</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> c <SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">space</SPAN><SPAN class="Special">&gt;</SPAN> :w<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>:!gcc &percnt;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="SML" style="color: #fff">SML</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> sml <SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">silent</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">space</SPAN><SPAN class="Special">&gt;</SPAN> &lt;leader&gt;cd:w<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>:!sml &percnt;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Scheme bidings" style="color: #fff">Scheme bidings</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">BufNewFile</SPAN>,<SPAN class="Type">BufRead</SPAN> *.scm <SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">space</SPAN><SPAN class="Special">&gt;</SPAN> &lt;leader&gt;cd:w<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>:!petite &percnt;<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">BufNewFile</SPAN>,<SPAN class="Type">BufRead</SPAN> *.scm <SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">buffer</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-t</SPAN><SPAN class="Special">&gt;</SPAN> (pretty-print )<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>i
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">BufNewFile</SPAN>,<SPAN class="Type">BufRead</SPAN> *.scm <SPAN class="Statement">vnoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-t</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&gt;a)<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>`&lt;i(pretty-print <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="SVN section" style="color: #fff">SVN section</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">F8</SPAN><SPAN class="Special">&gt;</SPAN> :new<SPAN class="Special">&lt;</SPAN><SPAN class="Special">CR</SPAN><SPAN class="Special">&gt;</SPAN>:read !svn diff<SPAN class="Special">&lt;</SPAN><SPAN class="Special">CR</SPAN><SPAN class="Special">&gt;</SPAN>:set syntax=diff buftype=nofile<SPAN class="Special">&lt;</SPAN><SPAN class="Special">CR</SPAN><SPAN class="Special">&gt;</SPAN>gg
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Snippets" style="color: #fff">Snippets</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot;You can use &lt;c-j&gt; to goto the next &lt;++&gt; - it is pretty smart ;)</SPAN>
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Python" style="color: #fff">Python</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cfun <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;def &lt;++&gt;(&lt;++&gt;):\n&lt;++&gt;\nreturn &lt;++&gt;&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cclass <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;class &lt;++&gt;:\n&lt;++&gt;&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cfor <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;for &lt;++&gt; in &lt;++&gt;:\n&lt;++&gt;&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cif <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;if &lt;++&gt;:\n&lt;++&gt;&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> python <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cifelse <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;if &lt;++&gt;:\n&lt;++&gt;\nelse:\n&lt;++&gt;&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="JavaScript" style="color: #fff">JavaScript</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> cheetah,html,javascript <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cfun <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;function &lt;++&gt;(&lt;++&gt;) {\n&lt;++&gt;;\nreturn &lt;++&gt;;\n}&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">filetype</SPAN> cheetah,html,javascript <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cfor <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;for(&lt;++&gt;; &lt;++&gt;; &lt;++&gt;) {\n&lt;++&gt;;\n}&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> cheetah,html,javascript <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cif <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;if(&lt;++&gt;) {\n&lt;++&gt;;\n}&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> cheetah,html,javascript <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cifelse <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;if(&lt;++&gt;) {\n&lt;++&gt;;\n}\nelse {\n&lt;++&gt;;\n}&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="HTML" style="color: #fff">HTML</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> cheetah,html <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cahref <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&#39;&lt;a href=&quot;&lt;++&gt;&quot;&gt;&lt;++&gt;&lt;/a&gt;&#39;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> cheetah,html <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cbold <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&#39;&lt;b&gt;&lt;++&gt;&lt;/b&gt;&#39;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> cheetah,html <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cimg <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&#39;&lt;img src=&quot;&lt;++&gt;&quot; alt=&quot;&lt;++&gt;&quot; /&gt;&#39;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> cheetah,html <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cpara <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&#39;&lt;p&gt;&lt;++&gt;&lt;/p&gt;&#39;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> cheetah,html <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> ctag <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&#39;&lt;&lt;++&gt;&gt;&lt;++&gt;&lt;/&lt;++&gt;&gt;&#39;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> cheetah,html <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> ctag1 <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;&lt;&lt;++&gt;&gt;&lt;cr&gt;&lt;++&gt;&lt;cr&gt;&lt;/&lt;++&gt;&gt;&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">   &quot; <A name="Java" style="color: #fff">Java</A></SPAN>
+<SPAN class="Comment">   &quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cfun <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;public&lt;++&gt; &lt;++&gt;(&lt;++&gt;) {\n&lt;++&gt;;\nreturn &lt;++&gt;;\n}&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cfunpr <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;private&lt;++&gt; &lt;++&gt;(&lt;++&gt;) {\n&lt;++&gt;;\nreturn &lt;++&gt;;\n}&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cfor <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;for(&lt;++&gt;; &lt;++&gt;; &lt;++&gt;) {\n&lt;++&gt;;\n}&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cif <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;if(&lt;++&gt;) {\n&lt;++&gt;;\n}&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cifelse <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;if(&lt;++&gt;) {\n&lt;++&gt;;\n}\nelse {\n&lt;++&gt;;\n}&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cclass <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;class &lt;++&gt; &lt;++&gt; {\n&lt;++&gt;\n}&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+   <SPAN class="Statement">autocmd</SPAN> <SPAN class="Type">FileType</SPAN> java <SPAN class="Statement">inorea</SPAN> <SPAN class="Statement">&lt;</SPAN><SPAN class="Statement">buffer</SPAN><SPAN class="Statement">&gt;</SPAN> cmain <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-r</SPAN><SPAN class="Special">&gt;</SPAN>=<SPAN class="Normal">IMAP_PutTextWithMovement</SPAN><SPAN class="Statement">(</SPAN><SPAN class="Constant">&quot;public static void main(String[] argv) {\n&lt;++&gt;\n}&quot;</SPAN><SPAN class="Statement">)</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">   &quot;Presse c-q insted of space (or other key) to complete the snippet</SPAN>
+   <SPAN class="Statement">imap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-q</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-]</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="Cope" style="color: #fff">Cope</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;For Cope</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">silent</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN><SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN> :noh<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Comment">&quot;Orginal for all</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>n :cn<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>p :cp<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">leader</SPAN><SPAN class="Special">&gt;</SPAN>c :botright cw 10<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-u</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">c-l</SPAN><SPAN class="Special">&gt;&lt;</SPAN><SPAN class="Special">c-j</SPAN><SPAN class="Special">&gt;</SPAN>:q<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>:botright cw 10<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot; <A name="MISC" style="color: #fff">MISC</A></SPAN>
+<SPAN class="Comment">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</SPAN>
+<SPAN class="Comment">&quot;Remove the Windows ^M</SPAN>
+<SPAN class="Statement">noremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">Leader</SPAN><SPAN class="Special">&gt;</SPAN>m mmHmt:&percnt;s/<SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-V</SPAN><SPAN class="Special">&gt;&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>//ge<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>&#39;tzt&#39;m
+
+<SPAN class="Comment">&quot;Paste toggle - when pasting something in, don&#39;t indent.</SPAN>
+<SPAN class="Statement">set</SPAN> <SPAN class="PreProc">pastetoggle</SPAN>=<SPAN class="Special">&lt;</SPAN><SPAN class="Special">F3</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Comment">&quot;Remove indenting on empty lines</SPAN>
+<SPAN class="Statement">map</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">F2</SPAN><SPAN class="Special">&gt;</SPAN> :&percnt;s/\s*$//g<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>:noh<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>&#39;&#39;
+
+<SPAN class="Comment">&quot;Super paste</SPAN>
+<SPAN class="Statement">inoremap</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-v</SPAN><SPAN class="Special">&gt;</SPAN> <SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>:set paste<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>mui<SPAN class="Special">&lt;</SPAN><SPAN class="Special">C-R</SPAN><SPAN class="Special">&gt;</SPAN>+<SPAN class="Special">&lt;</SPAN><SPAN class="Special">esc</SPAN><SPAN class="Special">&gt;</SPAN>mv&#39;uV&#39;v=:set nopaste<SPAN class="Special">&lt;</SPAN><SPAN class="Special">cr</SPAN><SPAN class="Special">&gt;</SPAN>
+
+<SPAN class="Comment">&quot;A function that inserts links &amp; anchors on a TOhtml export.</SPAN>
+<SPAN class="Comment">&quot;</SPAN> <SPAN class="PreProc">Notice:</SPAN>
+<SPAN class="Comment">&quot; Syntax used is:</SPAN>
+<SPAN class="Comment">&quot; <A href="http://amix.dk/vim/vimrc.html#Link" style="color: cyan">Link</A></SPAN>
+<SPAN class="Comment">&quot; <A name="Anchor" style="color: #fff">Anchor</A></SPAN>
+<SPAN class="Statement">function</SPAN>! SmartTOHtml<SPAN class="Statement">()</SPAN>
+   TOhtml
+   <SPAN class="Statement">try</SPAN>
+    <SPAN class="Number">&percnt;</SPAN><SPAN class="Statement">s</SPAN><SPAN class="Special">/</SPAN>&amp;quot;\s\+\*&amp;gt; <SPAN class="LineNr">\(</SPAN>.\+<SPAN class="LineNr">\)</SPAN>&lt;<SPAN class="Special">/</SPAN>&quot; &lt;a href=&quot;#<SPAN class="LineNr">\1</SPAN>&quot; style=&quot;color: cyan&quot;&gt;<SPAN class="LineNr">\1</SPAN>&lt;\/a&gt;&lt;<SPAN class="Special">/</SPAN><SPAN class="Special">g</SPAN>
+    <SPAN class="Number">&percnt;</SPAN><SPAN class="Statement">s</SPAN><SPAN class="Special">/</SPAN>&amp;quot;<SPAN class="LineNr">\(</SPAN>-<SPAN class="LineNr">\|</SPAN>\s<SPAN class="LineNr">\)</SPAN>\+\*&amp;gt; <SPAN class="LineNr">\(</SPAN>.\+<SPAN class="LineNr">\)</SPAN>&lt;<SPAN class="Special">/</SPAN>&quot; \&amp;nbsp;\&amp;nbsp; &lt;a href=&quot;#<SPAN class="LineNr">\2</SPAN>&quot; style=&quot;color: cyan;&quot;&gt;<SPAN class="LineNr">\2</SPAN>&lt;\/a&gt;&lt;<SPAN class="Special">/</SPAN><SPAN class="Special">g</SPAN>
+    <SPAN class="Number">&percnt;</SPAN><SPAN class="Statement">s</SPAN><SPAN class="Special">/</SPAN>&amp;quot;\s\+=&amp;gt; <SPAN class="LineNr">\(</SPAN>.\+<SPAN class="LineNr">\)</SPAN>&lt;<SPAN class="Special">/</SPAN>&quot; &lt;a name=&quot;<SPAN class="LineNr">\1</SPAN>&quot; style=&quot;color: #fff&quot;&gt;<SPAN class="LineNr">\1</SPAN>&lt;\/a&gt;&lt;<SPAN class="Special">/</SPAN><SPAN class="Special">g</SPAN>
+   <SPAN class="Statement">catch</SPAN>
+   <SPAN class="Statement">endtry</SPAN>
+   <SPAN class="Statement">exe</SPAN> <SPAN class="Constant">&quot;:write!&quot;</SPAN>
+   <SPAN class="Statement">exe</SPAN> <SPAN class="Constant">&quot;:bd&quot;</SPAN>
+<SPAN class="Statement">endfunction</SPAN>
+</PRE>
+<P>
+
+
+</BODY></HTML>

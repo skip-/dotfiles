@@ -1,0 +1,346 @@
+" Exit quickly when my vimrc has already been loaded.
+if exists("g:myvimrc_loaded")
+  finish
+endif
+
+source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+set gfn=Lucida_Console:h9:cANSI
+let $HOME = "C:/Users/bhunt/Documents"
+let $HOMEDRIVE = "C:"
+let $HOMEPATH = "/Users/bhunt/Documents"
+
+" for debugging use verbose
+" set verbose=2
+set nocompatible
+set laststatus=2
+set backspace=2
+set ignorecase smartcase
+set hlsearch incsearch
+set showmatch
+set ai
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set noexpandtab
+set nobackup
+set nosi
+"au GUIEnter * simalt ~x
+"set textwidth=200000
+"obsolete "set notextauto
+set clipboard=unnamed
+set sm "showmatch for braces and parens
+" Mouse stuff
+set mousehide " hides mouse after characters are typed
+"set mousefocus " no real reason for this
+set nomousefocus
+"set mouse="" " Mouse in none of the modes - allows X copy/paste
+set mouse=nr
+set viminfo='20,<1000,s50,h,rA:,rB:,!
+    " ' num of files to save info for
+    " < num lines to save per register
+    " s max # kilobytes of data per item (register)
+    " h turn off hisearch
+    " r 'removable' ignore files with paths starting with ..., for example a:
+    "   or b:
+    " ! store data for all caps macros
+set sessionoptions+=options,curdir,buffers,help,blank,resize,winpos
+    " :help mksession for more information
+    " also see mapping below for F2
+
+"colors
+syntax on 
+let python_highlight_all = 1
+let python_slow_sync = 1
+set background=dark
+"colors torte 
+"colors ps_color
+colors torte
+"colors oceandeep
+filetype plugin indent on 
+set linebreak showbreak=>\  
+
+set guioptions=mgrLt
+"set number
+set autoread 
+au FileType c,cpp,java set mps+==:;
+au FileType cs,cpp,java set mps+==:; formatoptions+=cl1oqr formatoptions-=t fileformat=dos
+au FileType python set ts=4 sts=4 sw=4 expandtab smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+au FileType python call Python_fold() 
+au FileType c,cpp,cs,java,python call PyIndentAutoCfg()
+au BufRead,BufNewFile ReportingSite.log*	setfiletype cwadnlrlog
+au FileType cwadnlrlog set ff=dos formatoptions=l nowrap
+au BufRead,BufNewFile todo.txt,*.todo.txt,recur.txt,done.txt,*.jobdone,*.todo set filetype=todo
+au BufRead,BufNewFile *.vimki set filetype=twiki ts=3 sw=3 sts=3 tw=80  suffixesadd=.vimki formatoptions+=tcroqwnl1 linebreak showbreak=>\  expandtab
+au BufNewFile,BufRead *.ahk setf ahk 
+augroup filetypedetect
+    au! BufRead,BufNewFile tprog*.log set readonly filetype=hstlog
+    au! BufRead,BufNewFile health*.log set readonly filetype=hstlog
+    au! BufRead,BufNewFile thermal*.log set readonly filetype=hstlog
+
+    au! BufRead,BufNewFile *.otl setfiletype vo_base
+    au! BufRead,BufNewFile *.oln setfiletype xoutliner
+augroup END
+
+" Set the mapleader
+"let mapleader=","
+
+" Custom, one-time, use functions & mappings
+map <leader>LL G?\*\*\* APPLICATION STARTING<C-M>kdgg
+" :% !ruby d:\bin\xmlformat.rb
+" map <F2> <Esc>:1,$!xmllint --format -<CR>
+" :!xmlformat %
+
+" Mappings
+imap <C-e> <End>
+"source ~/.vim/plugin/EnhancedCommentify.vim
+"source ~/.vim/plugin/matchit.vim
+"map s :call EnhancedCommentify('','guess')<CR>j
+nmap <F2> :wa<Bar>exe "mksession! " . v:this_session<CR>:so ~/vimfiles/sessions/
+    " :wa  save all open files
+    " exe "mksess...  resave the current session
+    " :so ~/vimfiles/sessions/  start the command to open another session
+
+" IDE setup
+" Bclose
+" source ~/vimfiles/plugin/bufferclose.vim
+
+" Settings for VTreeExplorer
+let g:treeExplVertical = 1
+"let g:treeExplWinSize = 
+"let g:treeExplHidden = 0
+"let g:treeExplHidePattern = 0
+"let g:treeExplDirSort = 0  "[0:nosort,1:dirsfirst,-1:dirslast]
+"let g:treeExplIndent = 3  "[3-8]
+"let g:treeExplNoList = 0  "don't list explorer in buffer list
+
+"" Settings for minibufexpl.vim
+"let g:miniBufExplModSelTarget = 1
+"let g:miniBufExplorerMoreThanOne = 0
+"let g:miniBufExplModSelTarget = 0
+"let g:miniBufExplUseSingleClick = 1
+"let g:miniBufExplMapWindowNavVim = 1
+"let g:miniBufExplVSplit = 25
+"let g:miniBufExplSplitBelow=1
+
+map <c-w><c-t> :WMToggle<cr>
+
+" Settings for EnhancedCommentify
+let g:EnhCommentifyRespectIndent = 'Yes'
+"let g:EnhCommentifyUserBindings = 'Yes'
+let g:EnhCommentifyUseAltKeys = 'yes'
+" 4.1 Standard keybindings:
+" 
+" 				Meta-Keys:	    <Leader>Keys:
+" 
+" Traditional-mode:
+" Traditionial			<M-x>		    <Leader>x
+" Traditionial + one line down	<M-c>		    <Leader>c
+" 
+" FirstLine-mode:
+" FirstLine			<M-x>		    <Leader>x
+" FirstLine + one line down	<M-c>		    <Leader>c
+" 
+" User-mode:
+" Comment				<M-x>		    <Leader>x
+" Comment	+ one line down		<M-c>		    <Leader>c
+" DeComment			<M-y>		    <Leader>X
+" DeComment + one line down	<M-v>		    <Leader>C
+
+" Using tabs
+map <leader>tt :tabnew %<cr>
+map <leader>tc :tabclose<cr>
+map <leader>tm :tabmove
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprev<cr>
+
+" Command-line completion
+"  Use C-D to see a list of all possible completions
+set wildmenu
+"  Bash-style TAB completion
+" set wildmode=longest,list,full
+" set wildmenu
+" set wildignore+=*.o,*.obj
+
+" Helpful mappings
+"  edit home dir
+cnoremap $h e ~/
+"  edit desktop dir
+cnoremap $d e ~/Desktop/
+"  edit cur dir
+cnoremap $$ e ./
+"  insert filename
+cmap $fn <c-r>=expand('%:p')<cr>
+"  insert directory
+cmap $fd <c-r>=expand('%:p:h').'/'<cr>
+"  turn off autoindent for pasting
+set pastetoggle=<F3>
+"  quickfix commands
+map <leader>n :cn<cr>
+map <leader>p :cp<cr>
+" I prefer to use \c as the leader for todo commands
+" and I can't seem to figure out what this will do.
+" It seems to just close the :copen quick fix error buffer
+"map <leader>c :botright cw 10<cr>
+
+
+"==================================================================================
+" Auto select correct indent method (spaces or tabs) for python files
+" URL: http://vim.wikia.com/wiki/Set_indent_parameters_for_python_files.
+" ---------------------------------------------------------------------------------
+" Version: 0.1 
+" Date: 13 May 2006 
+" 
+" Description: most python scripts use four spaces for indenting, but 
+" sometimes you will end up editing a script where tabs 
+" are used; in these situations it can be useful to 
+" automatically detect whether spaces or tabs were used, 
+" and set some parameters (or call some functions) consequently. 
+" 
+" Usage: you can put this script in you vimrc and call the PyIndentAutoCfg 
+" function with an autocmd associated to python files, or call 
+" it manually, or put it in the python.vim syntax script, or... :-) 
+
+" Function to set parameters for python scripts that use 
+" spaces for indention. This is also the default. YMMV. 
+function PySpacesCfg() 
+ set expandtab " use spaces in place of tabs. 
+ set tabstop=8 " number of spaces for a tab. 
+ set softtabstop=4 " number of spaces for a tab in editing operations. 
+ set shiftwidth=4 " number of spaces for indent (>>, <<, ...) 
+endfunction 
+
+
+
+" Function to set parameters for python scripts that use 
+" tabs for indention. YMMV. 
+function PyTabsCfg() 
+ set noexpandtab 
+ set tabstop=4 
+ set softtabstop=4 
+ set shiftwidth=4 
+endfunction 
+
+
+" This function returns 1 if the file looks like a python script 
+" that uses tabs for indenting, or 0 otherwise. 
+" orig: 
+"function PyIsTabIndent() 
+"  let lnum = 1 
+"  let max_lines = 100 " max number of lines to check. 
+"  let got_tabs = 0 
+"  let got_cols = 0 " 1 if the previous lines ended with columns. 
+"  while lnum <= max_lines 
+"    let line = getline(lnum) 
+"    let lnum = lnum + 1 
+"    if got_cols == 1 
+"      if line =~ "^\t\t" " at least two tabs, to prevent false-positives. 
+"        let got_tabs = 1 
+"        break 
+"      endif 
+"    endif 
+"    if line =~ ":\s*$" 
+"      let got_cols = 1 
+"    else 
+"      let got_cols = 0 
+"    endif 
+"  endwhile 
+"  return got_tabs 
+"endfunction 
+function! PyIsTabIndent() 
+  let lnum = 1 
+  let max_lines = 100 " max number of lines to check. 
+  let got_tabs = 0 
+  while lnum <= max_lines 
+    let line = getline(lnum) 
+    let lnum = lnum + 1 
+    if line =~ '^\t\t\(if\|while\|do\|for\|public\|private\|char\|int\|float\|double\|call\)\>' 
+      let got_tabs = 1 
+      break 
+    endif 
+  endwhile 
+  return got_tabs 
+endfunction
+
+" Check the file, and run the relative function. 
+function PyIndentAutoCfg() 
+  if PyIsTabIndent() == 1 
+    call PyTabsCfg() 
+  else 
+    call PySpacesCfg() 
+  endif 
+endfunction 
+
+" Call the PyIndentAutoCfg function. Uncomment this line if you've copied 
+" this script in the python.vim syntax file or something like that. 
+call PyIndentAutoCfg()
+"==================================================================================
+
+"==================================================================================
+" Setup a more friendly diff program
+" ---------------------------------------------------------------------------------
+set diffexpr=MyDiff()
+function MyDiff()
+  let opt = '-a --binary '
+  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  let arg1 = v:fname_in
+  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  let arg2 = v:fname_new
+  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  let arg3 = v:fname_out
+  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  let eq = ''
+  if $VIMRUNTIME =~ ' '
+    if &sh =~ '\<cmd'
+      let cmd = '""' . $VIMRUNTIME . '\diff"'
+      let eq = '"'
+    else
+      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    endif
+  else
+    let cmd = $VIMRUNTIME . '\diff'
+  endif
+  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+endfunction
+"==================================================================================
+
+"==================================================================================
+" Automatic folding for python files
+" URL: http://vim.wikia.com/wiki/Outline_editing_of_Python_programmes
+" Author: Author: Lee Chun Kin
+" Desc: You can use the folding functions (zm, zM, zr, zR, xa, zo, zc, zx...) in 
+"       editing Python program.
+" ---------------------------------------------------------------------------------
+"augroup python_prog 
+"  au! 
+"  fun! Python_fold() 
+   function Python_fold()
+    execute 'syntax clear pythonStatement' 
+    execute 'syntax keyword pythonStatement break continue del'
+    execute 'syntax keyword pythonStatement elif else except exec'
+    execute 'syntax keyword pythonStatement finally for if'
+    execute 'syntax keyword pythonStatement pass print raise'
+    execute 'syntax keyword pythonStatement return try while'
+    execute 'syntax keyword pythonStatement global assert'
+    execute 'syntax keyword pythonStatement lambda yield'
+    execute 'syntax match pythonStatement /\<def\>/ nextgroup=pythonFunction skipwhite' 
+    execute 'syntax match pythonStatement /\<class\>/ nextgroup=pythonFunction skipwhite' 
+    execute 'syntax region pythonFold start="^\z(\s*\)\%(class\|def\)" end="^\%(\n*\z1\s\)\@!" transparent fold' 
+    execute 'syntax sync minlines=2000 maxlines=4000' 
+    "set autoindent 
+    set foldmethod=syntax 
+    " set foldopen=all foldclose=all 
+    set foldtext=substitute(getline(v:foldstart),'\\t','\ \ \ \ ','g') 
+    set fillchars=vert:\|,fold:\ 
+    set tabstop=4 shiftwidth=4 nowrap guioptions+=b 
+  endfun 
+  
+"  autocmd FileType python call Python_fold() 
+"augroup END 
+"==================================================================================
+
+" Set global flag to indicate this file has been loaded
+let g:myvimrc_loaded = "MYVIMRC_LOADED"
+

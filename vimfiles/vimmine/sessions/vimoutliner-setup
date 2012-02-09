@@ -1,0 +1,1006 @@
+let SessionLoad = 1
+if &cp | set nocp | endif
+let s:cpo_save=&cpo
+set cpo&vim
+imap <silent> <Plug>IMAP_JumpBack =IMAP_Jumpfunc('b', 0)
+imap <silent> <Plug>IMAP_JumpForward =IMAP_Jumpfunc('', 0)
+cnoremap <C-F4> c
+inoremap <C-F4> c
+cnoremap <C-Tab> w
+inoremap <C-Tab> w
+cmap <S-Insert> +
+imap <S-Insert> 
+xnoremap  ggVG
+snoremap  gggHG
+onoremap  gggHG
+nnoremap  gggHG
+vnoremap  "+y
+smap 	 i<BS>	
+vmap <NL> <Plug>IMAP_JumpForward
+nmap <NL> <Plug>IMAP_JumpForward
+nnoremap <silent>  :YRReplace '1', 'p'
+nnoremap <silent>  :YRReplace '-1', 'P'
+noremap  
+nnoremap  :update
+vnoremap  :update
+onoremap  :update
+nmap  "+gP
+omap  "+gP
+map  :WMToggle
+vnoremap  "+x
+noremap  
+noremap  u
+map  a
+cnoremap   :simalt ~
+inoremap   :simalt ~
+map ,,B :%s/\(^\t*\):/\1/e:let @/=""
+map ,,b :%s/\(^\t*\):/\1/e:%s/\(^\t*\) /\1: /e:let @/=""
+map ,nt :call VimkiNewFile()
+map ,j :call VimkiTagsfileJump()
+map ,et :execute "e! 'c:/documents and settings/bhunt/my documents/vimfiles/vimki_tags'"gg
+map ,uT :call VimkiTagsfileUpdateAll()
+map ,ut :call VimkiTagsfileUpdate("\\[\\[.*\\]\\]",2,2,"c:/documents and settings/bhunt/my documents/vimfiles/vimki_tags")
+nnoremap <silent> . :YRYankCount '.'
+nnoremap <silent> D :YRYankCount 'D'
+vnoremap <silent> P :YRPaste 'P', 'v'
+nnoremap <silent> P :YRPaste 'P'
+map Q gq
+nnoremap <silent> Y :YRYankCount 'Y'
+map <silent> \bv :VSBufExplorer
+map <silent> \bs :SBufExplorer
+map <silent> \be :BufExplorer
+map \c :botright cw 10
+map \p :cp
+map \n :cn
+map \tp :tabprev
+map \tn :tabnext
+map \tm :tabmove
+map \tc :tabclose
+map \tt :tabnew %
+map \LL G?\*\*\* APPLICATION STARTINGkdgg
+imap <silent> ã <Plug>Traditionalji
+vnoremap <silent> d :YRDeleteRange 'v'
+nnoremap <silent> dgg :YRYankCount 'dgg'
+nnoremap <silent> dG :YRYankCount 'dG'
+nnoremap <silent> d$ :YRYankCount 'd$'
+nnoremap <silent> daw :YRYankCount 'daw'
+nnoremap <silent> diw :YRYankCount 'diw'
+nnoremap <silent> dE :YRYankCount 'dE'
+nnoremap <silent> de :YRYankCount 'de'
+nnoremap <silent> dw :YRYankCount 'dw'
+nnoremap <silent> dd :YRYankCount 'dd'
+nmap gx <Plug>NetrwBrowseX
+nnoremap <silent> gp :YRPaste 'gp'
+nnoremap <silent> gP :YRPaste 'gP'
+vnoremap <silent> p :YRPaste 'p', 'v'
+nnoremap <silent> p :YRPaste 'p'
+nnoremap <silent> x :YRYankCount 'x'
+imap <silent> ø <Plug>Traditional
+vnoremap <silent> y :YRYankRange 'v'
+nnoremap <silent> ygg :YRYankCount 'ygg'
+nnoremap <silent> yG :YRYankCount 'yG'
+nnoremap <silent> y$ :YRYankCount 'y$'
+nnoremap <silent> yaw :YRYankCount 'yaw'
+nnoremap <silent> yiw :YRYankCount 'yiw'
+nnoremap <silent> yE :YRYankCount 'yE'
+nnoremap <silent> ye :YRYankCount 'ye'
+nnoremap <silent> yw :YRYankCount 'yw'
+nnoremap <silent> yy :YRYankCount 'yy'
+map <S-Up> dd <Up>P
+map <S-Down> dd p
+nnoremap <C-F4> c
+nnoremap <C-Tab> w
+nmap <S-Insert> "+gP
+nnoremap <silent> <Plug>NetrwBrowseX :call netrw#NetrwBrowseX(expand("<cWORD>"),0)
+vmap <silent> <Plug>IMAP_JumpBack `<i=IMAP_Jumpfunc('b', 0)
+vmap <silent> <Plug>IMAP_JumpForward i=IMAP_Jumpfunc('', 0)
+vmap <silent> <Plug>IMAP_DeleteAndJumpBack "_<Del>i=IMAP_Jumpfunc('b', 0)
+vmap <silent> <Plug>IMAP_DeleteAndJumpForward "_<Del>i=IMAP_Jumpfunc('', 0)
+nmap <silent> <Plug>IMAP_JumpBack i=IMAP_Jumpfunc('b', 0)
+nmap <silent> <Plug>IMAP_JumpForward i=IMAP_Jumpfunc('', 0)
+noremap <Plug>VisualFirstLine :call EnhancedCommentify('', 'first',				    line("'<"), line("'>"))
+noremap <Plug>VisualTraditional :call EnhancedCommentify('', 'guess',				    line("'<"), line("'>"))
+noremap <Plug>VisualDeComment :call EnhancedCommentify('', 'decomment',				    line("'<"), line("'>"))
+noremap <Plug>VisualComment :call EnhancedCommentify('', 'comment',				    line("'<"), line("'>"))
+noremap <Plug>FirstLine :call EnhancedCommentify('', 'first')
+noremap <Plug>Traditional :call EnhancedCommentify('', 'guess')
+noremap <Plug>DeComment :call EnhancedCommentify('', 'decomment')
+noremap <Plug>Comment :call EnhancedCommentify('', 'comment')
+nmap <F2> :wa|exe "mksession! " . v:this_session:so ~/vimfiles/sessions/
+onoremap <C-F4> c
+vnoremap <C-F4> c
+onoremap <C-Tab> w
+vnoremap <C-Tab> w
+vmap <S-Insert> 
+vnoremap <BS> d
+vmap <C-Del> "*d
+vnoremap <S-Del> "+x
+vnoremap <C-Insert> "+y
+omap <S-Insert> "+gP
+cnoremap  gggHG
+inoremap  gggHG
+imap  <End>
+imap 	 <Plug>Jumper
+imap <NL> <Plug>IMAP_JumpForward
+inoremap  :update
+inoremap  u
+cmap  +
+inoremap  
+inoremap  u
+inoremap  =GetCloseTag()
+noremap   :simalt ~
+cmap $fd =expand('%:p:h').'/'
+cmap $fn =expand('%:p')
+cnoremap $$ e ./
+cnoremap $d e ~/Desktop/
+cnoremap $h e ~/
+vmap <silent> ã <Plug>VisualTraditionalj
+nmap <silent> ã <Plug>Traditionalj
+vmap <silent> ø <Plug>VisualTraditional
+nmap <silent> ø <Plug>Traditional
+let &cpo=s:cpo_save
+unlet s:cpo_save
+set autoindent
+set autoread
+set background=dark
+set backspace=2
+set clipboard=unnamed
+set diffexpr=MyDiff()
+set expandtab
+set fillchars=
+set guifont=Lucida_Console:h9:cANSI
+set guioptions=mgrLt
+set helplang=En
+set hlsearch
+set ignorecase
+set incsearch
+set keymodel=startsel,stopsel
+set laststatus=2
+set mouse=nr
+set pastetoggle=<F3>
+set ruler
+set runtimepath=~/vimfiles,C:\\Program\ Files\\vim,C:\\Program\ Files\\vim\\vim72,~/vimfiles/vimoutliner,~/,~/vimfiles/vimoutliner,~/,~/vimfiles/vimoutliner,~/
+set selection=exclusive
+set selectmode=mouse,key
+set sessionoptions=blank,buffers,curdir,folds,help,options,tabpages,winsize,options,curdir,buffers,help,blank,resize,winpos
+set shiftwidth=4
+set showbreak=>\ 
+set showmatch
+set smartcase
+set softtabstop=4
+set notagbsearch
+set tags=./tags,tags,C:/Documents\\\ and\\\ Settings/bhunt/My\\\ Documents/vimfiles/vimki_tags
+set updatetime=500
+set viminfo='20,<1000,s50,h,rA:,rB:,!
+set wildmenu
+set window=63
+let s:so_save = &so | let s:siso_save = &siso | set so=0 siso=0
+let v:this_session=expand("<sfile>:p")
+silent only
+cd ~/
+if expand('%') == '' && !&modified && line('$') <= 1 && getline(1) == ''
+  let s:wipebuf = bufnr('%')
+endif
+set shortmess=aoO
+badd +7 saved\Today\tags
+badd +4 test2.otl
+badd +1 vimfiles\vimoutliner\vimoutlinerrc
+badd +1 vimfiles\vimoutliner\plugins\vo_checkbox.otl
+badd +1 vimfiles\vimoutliner\plugins\vo_hoist.otl
+badd +4 vo_test.otl
+badd +1 tags
+silent! argdel *
+set lines=64 columns=180
+winpos 8 54
+edit vimfiles\vimoutliner\plugins\vo_checkbox.otl
+set splitbelow splitright
+wincmd _ | wincmd |
+split
+1wincmd k
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+wincmd w
+wincmd _ | wincmd |
+vsplit
+wincmd _ | wincmd |
+vsplit
+2wincmd h
+wincmd w
+wincmd w
+set nosplitbelow
+set nosplitright
+wincmd t
+set winheight=1 winwidth=1
+exe '1resize ' . ((&lines * 28 + 32) / 64)
+exe 'vert 1resize ' . ((&columns * 74 + 90) / 180)
+exe '2resize ' . ((&lines * 28 + 32) / 64)
+exe 'vert 2resize ' . ((&columns * 68 + 90) / 180)
+exe '3resize ' . ((&lines * 28 + 32) / 64)
+exe 'vert 3resize ' . ((&columns * 36 + 90) / 180)
+exe '4resize ' . ((&lines * 33 + 32) / 64)
+exe 'vert 4resize ' . ((&columns * 70 + 90) / 180)
+exe '5resize ' . ((&lines * 33 + 32) / 64)
+exe 'vert 5resize ' . ((&columns * 72 + 90) / 180)
+exe '6resize ' . ((&lines * 33 + 32) / 64)
+exe 'vert 6resize ' . ((&columns * 36 + 90) / 180)
+argglobal
+edit \Program\ Files\vim\vim72\doc\vo_readme.txt
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal nobuflisted
+setlocal buftype=help
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'help'
+setlocal filetype=help
+endif
+setlocal foldcolumn=0
+setlocal nofoldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=manual
+setlocal foldminlines=1
+setlocal foldnestmax=20
+set foldtext=MyFoldText()
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=tcroql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=!-~,^*,^|,^\",192-255
+setlocal keywordprg=
+set linebreak
+setlocal linebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal nomodifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal readonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'help'
+setlocal syntax=help
+endif
+setlocal tabstop=8
+setlocal tags=
+setlocal textwidth=78
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+silent! normal! zE
+let s:l = 429 - ((27 * winheight(0) + 14) / 28)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+429
+normal! 0
+wincmd w
+argglobal
+map <buffer>  
+map <buffer>  
+map <buffer> ,,cz :call NewHMD(FindRootParent(line(".")))
+map <buffer> ,,cx :call SwitchBox():call NewHMD(FindRootParent(line(".")))
+map <buffer> ,,cd :call DeleteCheckbox()
+map <buffer> ,,cB :call InsertCheckBox()
+map <buffer> ,,cp :call SafelyInsertCheckBoxPercentAlways()
+map <buffer> ,,c% :call SafelyInsertCheckBoxPercent()
+map <buffer> ,,cb :call SafelyInsertCheckBox()
+map <buffer> <silent> ,,H :call DeHoistThis(line("."))
+map <buffer> <silent> ,,h :call Hoist(line("."))
+nmap <buffer> ,,e :call Spawn()
+map <buffer> ,,,, :source $HOME/vimfiles/vimoutliner/outliner.vim
+map <buffer> ,,1 :set foldlevel=0
+map <buffer> ,,2 :set foldlevel=1
+map <buffer> ,,3 :set foldlevel=2
+map <buffer> ,,4 :set foldlevel=3
+map <buffer> ,,5 :set foldlevel=4
+map <buffer> ,,6 :set foldlevel=5
+map <buffer> ,,7 :set foldlevel=6
+map <buffer> ,,8 :set foldlevel=7
+map <buffer> ,,9 :set foldlevel=8
+map <buffer> ,,0 :set foldlevel=99999
+map <buffer> ,,- o----------------------------------------0
+map <buffer> ,,f :e .
+map <buffer> ,,S :call SortChildren(1)
+map <buffer> ,,s :call SortChildren(0)
+nmap <buffer> ,,T ^:call InsertTime(1)a 
+nmap <buffer> ,,t $:call InsertSpaceTime()
+nmap <buffer> ,,D ^:call InsertDate(1)a 
+nmap <buffer> ,,d $:call InsertSpaceDate()
+imap <buffer> ,,H :echo "VimOutliner reserved command: ,,H"
+imap <buffer> ,,h :echo "VimOutliner reserved command: ,,h"
+map! <buffer> ,,w :wa
+imap <buffer> ,,- ----------------------------------------
+imap <buffer> ,,f :e .
+imap <buffer> ,,t ~x:call InsertTime(0)a
+imap <buffer> ,,d ~x:call InsertDate(0)a
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=sO::\ -,mO::\ \ ,eO:::,::,sO:>\ -,mO:>\ \ ,eO:>>,:>
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'vo_base'
+setlocal filetype=vo_base
+endif
+setlocal foldcolumn=1
+setlocal foldenable
+setlocal foldexpr=MyFoldLevel(v:lnum)
+setlocal foldignore=#
+setlocal foldlevel=20
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=expr
+setlocal foldminlines=1
+setlocal foldnestmax=20
+set foldtext=MyFoldText()
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=crqno
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,39,45,48-57,_,129-255
+setlocal keywordprg=
+set linebreak
+setlocal linebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'vo_base'
+setlocal syntax=vo_base
+endif
+setlocal tabstop=4
+setlocal tags=C:/Documents\\\ and\\\ Settings/bhunt/My\\\ Documents/vimfiles/vimoutliner/vo_tags.tag,./tags,tags,C:/Documents\\\ and\\\ Settings/bhunt/My\\\ Documents/vimfiles/vimki_tags
+setlocal textwidth=78
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal nowrap
+setlocal wrapmargin=5
+let s:l = 1 - ((0 * winheight(0) + 14) / 28)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+wincmd w
+argglobal
+edit vimfiles\vimoutliner\plugins\vo_hoist.otl
+map <buffer>  
+map <buffer>  
+map <buffer> ,,cz :call NewHMD(FindRootParent(line(".")))
+map <buffer> ,,cx :call SwitchBox():call NewHMD(FindRootParent(line(".")))
+map <buffer> ,,cd :call DeleteCheckbox()
+map <buffer> ,,cB :call InsertCheckBox()
+map <buffer> ,,cp :call SafelyInsertCheckBoxPercentAlways()
+map <buffer> ,,c% :call SafelyInsertCheckBoxPercent()
+map <buffer> ,,cb :call SafelyInsertCheckBox()
+map <buffer> <silent> ,,H :call DeHoistThis(line("."))
+map <buffer> <silent> ,,h :call Hoist(line("."))
+nmap <buffer> ,,e :call Spawn()
+map <buffer> ,,,, :source $HOME/vimfiles/vimoutliner/outliner.vim
+map <buffer> ,,1 :set foldlevel=0
+map <buffer> ,,2 :set foldlevel=1
+map <buffer> ,,3 :set foldlevel=2
+map <buffer> ,,4 :set foldlevel=3
+map <buffer> ,,5 :set foldlevel=4
+map <buffer> ,,6 :set foldlevel=5
+map <buffer> ,,7 :set foldlevel=6
+map <buffer> ,,8 :set foldlevel=7
+map <buffer> ,,9 :set foldlevel=8
+map <buffer> ,,0 :set foldlevel=99999
+map <buffer> ,,- o----------------------------------------0
+map <buffer> ,,f :e .
+map <buffer> ,,S :call SortChildren(1)
+map <buffer> ,,s :call SortChildren(0)
+nmap <buffer> ,,T ^:call InsertTime(1)a 
+nmap <buffer> ,,t $:call InsertSpaceTime()
+nmap <buffer> ,,D ^:call InsertDate(1)a 
+nmap <buffer> ,,d $:call InsertSpaceDate()
+imap <buffer> ,,H :echo "VimOutliner reserved command: ,,H"
+imap <buffer> ,,h :echo "VimOutliner reserved command: ,,h"
+map! <buffer> ,,w :wa
+imap <buffer> ,,- ----------------------------------------
+imap <buffer> ,,f :e .
+imap <buffer> ,,t ~x:call InsertTime(0)a
+imap <buffer> ,,d ~x:call InsertDate(0)a
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=sO::\ -,mO::\ \ ,eO:::,::,sO:>\ -,mO:>\ \ ,eO:>>,:>
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'vo_base'
+setlocal filetype=vo_base
+endif
+setlocal foldcolumn=1
+setlocal foldenable
+setlocal foldexpr=MyFoldLevel(v:lnum)
+setlocal foldignore=#
+setlocal foldlevel=20
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=expr
+setlocal foldminlines=1
+setlocal foldnestmax=20
+set foldtext=MyFoldText()
+setlocal foldtext=foldtext()
+setlocal formatexpr=
+setlocal formatoptions=crqno
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,39,45,48-57,_,129-255
+setlocal keywordprg=
+set linebreak
+setlocal linebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'vo_base'
+setlocal syntax=vo_base
+endif
+setlocal tabstop=4
+setlocal tags=C:/Documents\\\ and\\\ Settings/bhunt/My\\\ Documents/vimfiles/vimoutliner/vo_tags.tag,./tags,tags,C:/Documents\\\ and\\\ Settings/bhunt/My\\\ Documents/vimfiles/vimki_tags
+setlocal textwidth=78
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal nowrap
+setlocal wrapmargin=5
+let s:l = 1 - ((0 * winheight(0) + 14) / 28)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+wincmd w
+argglobal
+edit saved\Today\tags
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=s1:/*,mb:*,ex:*/,://,b:#,:%,:XCOMM,n:>,fb:-
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'tags'
+setlocal filetype=tags
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=GetPythonFold(v:lnum)
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=expr
+setlocal foldminlines=1
+setlocal foldnestmax=20
+set foldtext=MyFoldText()
+setlocal foldtext=PythonFoldText()
+setlocal formatexpr=
+setlocal formatoptions=tcq
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+set linebreak
+setlocal linebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'tags'
+setlocal syntax=tags
+endif
+setlocal tabstop=8
+setlocal tags=
+setlocal textwidth=0
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+let s:l = 1 - ((0 * winheight(0) + 16) / 33)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+1
+normal! 0
+wincmd w
+argglobal
+edit vimfiles\vimoutliner\vimoutlinerrc
+vnoremap <buffer> <silent> [" :exe "normal! gv"|call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+nnoremap <buffer> <silent> [" :call search('\%(^\s*".*\n\)\%(^\s*"\)\@!', "bW")
+vnoremap <buffer> <silent> [] m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "bW")
+nnoremap <buffer> <silent> [] m':call search('^\s*endf*\%[unction]\>', "bW")
+vnoremap <buffer> <silent> [[ m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "bW")
+nnoremap <buffer> <silent> [[ m':call search('^\s*fu\%[nction]\>', "bW")
+vnoremap <buffer> <silent> ]" :exe "normal! gv"|call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+nnoremap <buffer> <silent> ]" :call search('^\(\s*".*\n\)\@<!\(\s*"\)', "W")
+vnoremap <buffer> <silent> ][ m':exe "normal! gv"|call search('^\s*endf*\%[unction]\>', "W")
+nnoremap <buffer> <silent> ][ m':call search('^\s*endf*\%[unction]\>', "W")
+vnoremap <buffer> <silent> ]] m':exe "normal! gv"|call search('^\s*fu\%[nction]\>', "W")
+nnoremap <buffer> <silent> ]] m':call search('^\s*fu\%[nction]\>', "W")
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=sO:\"\ -,mO:\"\ \ ,eO:\"\",:\"
+setlocal commentstring=\"%s
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal expandtab
+if &filetype != 'vim'
+setlocal filetype=vim
+endif
+setlocal foldcolumn=0
+setlocal foldenable
+setlocal foldexpr=0
+setlocal foldignore=#
+setlocal foldlevel=0
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=marker
+setlocal foldminlines=1
+setlocal foldnestmax=20
+set foldtext=MyFoldText()
+setlocal foldtext=MyFoldText()
+setlocal formatexpr=
+setlocal formatoptions=croql
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=GetVimIndent()
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e,=end,=else,=cat,=fina,=END,0\\
+setlocal noinfercase
+setlocal iskeyword=@,48-57,_,192-255
+setlocal keywordprg=
+set linebreak
+setlocal linebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=4
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'vim'
+setlocal syntax=vim
+endif
+setlocal tabstop=8
+setlocal tags=
+setlocal textwidth=78
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal wrap
+setlocal wrapmargin=0
+let s:l = 9 - ((0 * winheight(0) + 16) / 33)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+9
+normal! 0
+wincmd w
+argglobal
+edit vo_test.otl
+map <buffer>  
+map <buffer>  
+map <buffer> ,,cz :call NewHMD(FindRootParent(line(".")))
+map <buffer> ,,cx :call SwitchBox():call NewHMD(FindRootParent(line(".")))
+map <buffer> ,,cd :call DeleteCheckbox()
+map <buffer> ,,cB :call InsertCheckBox()
+map <buffer> ,,cp :call SafelyInsertCheckBoxPercentAlways()
+map <buffer> ,,c% :call SafelyInsertCheckBoxPercent()
+map <buffer> ,,cb :call SafelyInsertCheckBox()
+map <buffer> <silent> ,,H :call DeHoistThis(line("."))
+map <buffer> <silent> ,,h :call Hoist(line("."))
+nmap <buffer> ,,e :call Spawn()
+map <buffer> ,,,, :source $HOME/vimfiles/vimoutliner/outliner.vim
+map <buffer> ,,1 :set foldlevel=0
+map <buffer> ,,2 :set foldlevel=1
+map <buffer> ,,3 :set foldlevel=2
+map <buffer> ,,4 :set foldlevel=3
+map <buffer> ,,5 :set foldlevel=4
+map <buffer> ,,6 :set foldlevel=5
+map <buffer> ,,7 :set foldlevel=6
+map <buffer> ,,8 :set foldlevel=7
+map <buffer> ,,9 :set foldlevel=8
+map <buffer> ,,0 :set foldlevel=99999
+map <buffer> ,,- o----------------------------------------0
+map <buffer> ,,f :e .
+map <buffer> ,,S :call SortChildren(1)
+map <buffer> ,,s :call SortChildren(0)
+nmap <buffer> ,,T ^:call InsertTime(1)a 
+nmap <buffer> ,,t $:call InsertSpaceTime()
+nmap <buffer> ,,D ^:call InsertDate(1)a 
+nmap <buffer> ,,d $:call InsertSpaceDate()
+imap <buffer> ,,H :echo "VimOutliner reserved command: ,,H"
+imap <buffer> ,,h :echo "VimOutliner reserved command: ,,h"
+map! <buffer> ,,w :wa
+imap <buffer> ,,- ----------------------------------------
+imap <buffer> ,,f :e .
+imap <buffer> ,,t ~x:call InsertTime(0)a
+imap <buffer> ,,d ~x:call InsertDate(0)a
+setlocal keymap=
+setlocal noarabic
+setlocal autoindent
+setlocal balloonexpr=
+setlocal nobinary
+setlocal bufhidden=
+setlocal buflisted
+setlocal buftype=
+setlocal nocindent
+setlocal cinkeys=0{,0},0),:,0#,!^F,o,O,e
+setlocal cinoptions=
+setlocal cinwords=if,else,while,do,for,switch
+setlocal comments=sO::\ -,mO::\ \ ,eO:::,::,sO:>\ -,mO:>\ \ ,eO:>>,:>
+setlocal commentstring=/*%s*/
+setlocal complete=.,w,b,u,t,i
+setlocal completefunc=
+setlocal nocopyindent
+setlocal nocursorcolumn
+setlocal nocursorline
+setlocal define=
+setlocal dictionary=
+setlocal nodiff
+setlocal equalprg=
+setlocal errorformat=
+setlocal noexpandtab
+if &filetype != 'vo_base'
+setlocal filetype=vo_base
+endif
+setlocal foldcolumn=1
+setlocal foldenable
+setlocal foldexpr=MyFoldLevel(v:lnum)
+setlocal foldignore=#
+setlocal foldlevel=20
+setlocal foldmarker={{{,}}}
+setlocal foldmethod=expr
+setlocal foldminlines=1
+setlocal foldnestmax=20
+set foldtext=MyFoldText()
+setlocal foldtext=MyFoldText()
+setlocal formatexpr=
+setlocal formatoptions=crqno
+setlocal formatlistpat=^\\s*\\d\\+[\\]:.)}\\t\ ]\\s*
+setlocal grepprg=
+setlocal iminsert=2
+setlocal imsearch=2
+setlocal include=
+setlocal includeexpr=
+setlocal indentexpr=
+setlocal indentkeys=0{,0},:,0#,!^F,o,O,e
+setlocal noinfercase
+setlocal iskeyword=@,39,45,48-57,_,129-255
+setlocal keywordprg=
+set linebreak
+setlocal linebreak
+setlocal nolisp
+setlocal nolist
+setlocal makeprg=
+setlocal matchpairs=(:),{:},[:]
+setlocal modeline
+setlocal modifiable
+setlocal nrformats=octal,hex
+setlocal nonumber
+setlocal numberwidth=4
+setlocal omnifunc=
+setlocal path=
+setlocal nopreserveindent
+setlocal nopreviewwindow
+setlocal quoteescape=\\
+setlocal noreadonly
+setlocal norightleft
+setlocal rightleftcmd=search
+setlocal noscrollbind
+setlocal shiftwidth=4
+setlocal noshortname
+setlocal nosmartindent
+setlocal softtabstop=0
+setlocal nospell
+setlocal spellcapcheck=[.?!]\\_[\\])'\"\	\ ]\\+
+setlocal spellfile=
+setlocal spelllang=en
+setlocal statusline=
+setlocal suffixesadd=
+setlocal swapfile
+setlocal synmaxcol=3000
+if &syntax != 'vo_base'
+setlocal syntax=vo_base
+endif
+setlocal tabstop=4
+setlocal tags=C:/Documents\\\ and\\\ Settings/bhunt/My\\\ Documents/vimfiles/vimoutliner/vo_tags.tag,./tags,tags,C:/Documents\\\ and\\\ Settings/bhunt/My\\\ Documents/vimfiles/vimki_tags
+setlocal textwidth=78
+setlocal thesaurus=
+setlocal nowinfixheight
+setlocal nowinfixwidth
+setlocal nowrap
+setlocal wrapmargin=5
+let s:l = 4 - ((3 * winheight(0) + 16) / 33)
+if s:l < 1 | let s:l = 1 | endif
+exe s:l
+normal! zt
+4
+normal! 0
+wincmd w
+exe '1resize ' . ((&lines * 28 + 32) / 64)
+exe 'vert 1resize ' . ((&columns * 74 + 90) / 180)
+exe '2resize ' . ((&lines * 28 + 32) / 64)
+exe 'vert 2resize ' . ((&columns * 68 + 90) / 180)
+exe '3resize ' . ((&lines * 28 + 32) / 64)
+exe 'vert 3resize ' . ((&columns * 36 + 90) / 180)
+exe '4resize ' . ((&lines * 33 + 32) / 64)
+exe 'vert 4resize ' . ((&columns * 70 + 90) / 180)
+exe '5resize ' . ((&lines * 33 + 32) / 64)
+exe 'vert 5resize ' . ((&columns * 72 + 90) / 180)
+exe '6resize ' . ((&lines * 33 + 32) / 64)
+exe 'vert 6resize ' . ((&columns * 36 + 90) / 180)
+tabnext 1
+if exists('s:wipebuf')
+  silent exe 'bwipe ' . s:wipebuf
+endif
+unlet! s:wipebuf
+set winheight=1 winwidth=20 shortmess=filnxtToO
+let s:sx = expand("<sfile>:p:r")."x.vim"
+if file_readable(s:sx)
+  exe "source " . fnameescape(s:sx)
+endif
+let &so = s:so_save | let &siso = s:siso_save
+doautoall SessionLoadPost
+unlet SessionLoad
+" vim: set ft=vim :

@@ -52,11 +52,12 @@ else
     " :help mksession for more information
     " also see mapping below for F2
     " usage: :mksession ; :so Vimsession
-  syntax on 
+  syntax on
   set background=dark
   "colors torte
-  filetype plugin indent on 
+  filetype plugin indent on
   set linebreak showbreak=>\  
+
 endif
 
 " Turn off modifiable flag, this shouldn't change - vimrc is in vimfiles/ or

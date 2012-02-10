@@ -15,9 +15,48 @@ if has("win16") || has("win32") || has("win64")
 
   set runtimepath=C:/Users/bhunt/Documents/vimfiles,$VIM,$VIMRUNTIME,C:/Users/bhunt/Documents/vimfiles/after
   cd c:/Users/bhunt/Documents
-  source c:/Users/bhunt/Documents/vimfiles/vimrc
+  let g:my_vimrc = "c:/Users/bhunt/Documents/vimfiles/vimrc"
 else
-  source $HOME/.vim/vimrc
+  let g:my_vimrc = "$HOME/.vim/vimrc"
+endif
+
+if filereadable(g:my_vimrc)
+  execute "source" g:my_vimrc
+else
+  " OOPS! Couldn't find my actual vimrc, do some minimal config
+  " stuff here to make vim just a little more comfortable while
+  " I fix it.
+  set nocompatible
+  set enc=utf-8
+  set laststatus=2
+  set backspace=2
+  set ignorecase smartcase
+  set hlsearch incsearch
+  set showmatch
+  set ai
+  set shiftwidth=4
+  set softtabstop=4
+  set tabstop=4
+  set noexpandtab
+  set nosi
+  set viminfo='20,<1000,s50,h,rA:,rB:,!,c
+    " ' num of files to save info for
+    " < num lines to save per register
+    " s max # kilobytes of data per item (register)
+    " h turn off hisearch
+    " r 'removable' ignore files with paths starting with ..., for example a:
+    "   or b:
+    " ! store data for all caps macros
+    " c convert text to current encoding value in viminfo
+  set sessionoptions+=options,curdir,buffers,help,blank,resize,winpos
+    " :help mksession for more information
+    " also see mapping below for F2
+    " usage: :mksession ; :so Vimsession
+  syntax on 
+  set background=dark
+  "colors torte
+  filetype plugin indent on 
+  set linebreak showbreak=>\  
 endif
 
 " Turn off modifiable flag, this shouldn't change - vimrc is in vimfiles/ or

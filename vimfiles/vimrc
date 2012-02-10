@@ -1,3 +1,10 @@
+" vim: set nomodifiable ts=2 sw=2 sts=2 expandtab:
+"
+" This is my main VIMRC file.
+" It contains the customizations and plugin configuration options that I find
+" most useful and productive.
+"
+
 " Exit quickly when my vimrc has already been loaded.
 if exists("g:myvimrc_loaded")
   finish
@@ -47,7 +54,7 @@ set laststatus=2
 set backspace=2
 set ignorecase smartcase
 set hlsearch incsearch
-set showmatch
+set showmatch "showmatch for braces and parens
 set ai
 set shiftwidth=4
 set softtabstop=4
@@ -59,14 +66,13 @@ set nosi
 "set textwidth=200000
 "obsolete "set notextauto
 set clipboard=unnamed
-set sm "showmatch for braces and parens
 " Mouse stuff
-set mousehide " hides mouse after characters are typed
-"set mousefocus " no real reason for this
-set nomousefocus
-"set mouse="" " Mouse in none of the modes - allows X copy/paste
-set mouse=nr
-set viminfo='20,<1000,s50,h,rA:,rB:,!
+  set mousehide " hides mouse after characters are typed
+  "set mousefocus " no real reason for this
+  set nomousefocus
+  "set mouse="" " Mouse in none of the modes - allows X copy/paste
+  set mouse=nr
+set viminfo='20,<1000,s50,h,rA:,rB:,!,c
     " ' num of files to save info for
     " < num lines to save per register
     " s max # kilobytes of data per item (register)
@@ -74,6 +80,7 @@ set viminfo='20,<1000,s50,h,rA:,rB:,!
     " r 'removable' ignore files with paths starting with ..., for example a:
     "   or b:
     " ! store data for all caps macros
+    " c convert text to current encoding value in viminfo
 set sessionoptions+=options,curdir,buffers,help,blank,resize,winpos
     " :help mksession for more information
     " also see mapping below for F2

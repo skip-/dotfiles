@@ -1,0 +1,37 @@
+# EC Standard Login Environment -*- sh -*-
+# user .fvwm2rc-startup file
+# $Source: /usr/cvs/cvsrep/ec_environ-1.0/release/user/fvwm2rc-startup,v $
+# $Revision: 1.4 $
+#
+
+### These functions only specify which modules to run
+### on start/restart.  Fuller module descriptions and
+### configs are in .fvwm2rc-modules
+
+
+# Run these on startup...
+
+AddToFunc "InitFunction"
+#
+#button panel to start applications, holds pager, xload, clock, etc.
++	"I" Module FvwmButtons
+
+#a pager is normally started by FvwmButtons; use this only after
+#changing FvwmButtons module or you will have multiple pagers.
+#+	"I" Module FvwmPager 0 0
+#
+#this module can automatically raise windows on focus
+#+	"I" Module FvwmAuto 300 raise
+#
+#brings up a list of managed windows
+#(similar funtion is normally configured on button2)
+#+	"I" Module FvwmTaskBar
+
+
+# Run these on restart, should be same list as above...
+
+AddToFunc "RestartFunction"
++	"I" Module FvwmButtons
+#+	"I" Module FvwmPager 0 0
+#+	"I" Module FvwmAuto 300 raise
+#+	"I" Module FvwmTaskBar

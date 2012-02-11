@@ -1,0 +1,138 @@
+# EC Standard Login Environment -*- sh -*-
+# user .fvwm2rc-theme file
+# $Source: /nfs/pdx/disks/comp.ct.3/source_archives/pkgs/eclogin/cvs/ec_environ-1.0/release/user/fvwm2rc-theme,v $
+# $Revision: 1.16 $
+#
+
+## See /usr/intel/common/pkgs/eclogin/1.0/ec/fvwm2rc-theme and fvwm(1)
+
+## You can override anything in the above file in this file.
+
+
+## Uncomment this for more colorful title bars.  Do NOT use this if you run
+## an 8-bit (256 color) display with color hungry applications (Cadence)!
+#TitleStyle ActiveUp (HGradient 40 2 tan 50 peru 50 tan) -- sunk
+#TitleStyle ActiveDown (HGradient 40 2 peru 50 tan 50 peru) -- flat
+#TitleStyle Inactive (HGradient 40 2 darkslateblue 50 slateblue 50 darkslateblue) -- raised
+
+
+## Uncomment this for an 'X' shaped button - use with caution!
+#
+# this is off by default because it's dangerous; use Window_Ops -> Close instead
+#Mouse 0 7 A Delete
+
+
+# MouseFocus is the default if none is
+# specified; focus changes as mouse enters
+# or leaves a window
+#Style "*"	MouseFocus
+
+# SloppyFocus leaves focus in the last window
+# active after mouse leaves, switches when
+# when mouse enters a new window
+#Style "*"	SloppyFocus
+
+# ClickToFocus leaves focus in the last window
+# active after mouse leaves, switches only
+# when mouse enters a new window and mouse
+# button 1 is clicked to change focus
+#Style "*"	ClickToFocus
+
+# Mouse scrolling of the viewer window across the virtual workspace:
+# default 0 0 disables this feature, most people do not want it.
+EdgeScroll	0 0
+#
+# Other examples: permit edge scrolling 25% both directions.
+#EdgeScroll	25 25
+#
+# Permit horizontal scrolling only by 1 full pane (0 100 for vertical).
+#EdgeScroll 100 0
+
+# default bindings have been set for Scroll:
+# alt+arrow     10%
+# control+arrow 100%
+
+# uncomment if you prefer Ctrl-Arrow keyboard scrolling to wrap around
+#Key Left	A	C	Scroll	-100000	+0
+#Key Right	A	C	Scroll	+100000	+0
+#Key Up		A	C	Scroll	+0	-100000
+#Key Down	A	C	Scroll	+0	+100000
+
+# system defaults apply functions to these keys which may disable features
+# of some applications (e.g. mozilla alt-left/alt-right for history back/fwd)
+#
+# uncomment if you prefer to disable the default alt/arrow and/or
+# ctrl/arrow scrolling of the virtual workspace
+#
+#Key Left        A       M       -
+#Key Right       A       M       -
+#Key Up          A       M       -
+#Key Down        A       M       -
+#
+#Key Left        A       C       -
+#Key Right       A       C       -
+#Key Up          A       C       -
+#Key Down        A       C       -
+
+# Prior to March 2006 this feature was opt-out.
+# A few customers asked for it to be opt-in.
+#
+# If you do not need function keys passed to other
+# applications (CAD tools), you can make these
+# bindings work without the shift key.  Defaults
+# use this:  Key F#   A   S  GotoPage # #
+#
+# Changing S to N enables the function with no modifiers.
+#
+# Map Function keys to 4 pages, Control Function keys to 4 desks
+#
+#       +-------+-------+
+#       |  F9   |  F10  |
+#       +-------+-------+
+#       |  F11  |  F12  |
+#       +-------+-------+
+
+# These functions require shift key to activate so
+# we do not disable F-keys in other applications; some
+# cad tools have frequently used functions bound to
+# them.
+#
+#Key F9          A       N       GotoPage 0 0
+#Key F10         A       N       GotoPage 1 0
+#Key F11         A       N       GotoPage 0 1
+#Key F12         A       N       GotoPage 1 1
+
+# If you want to remove bindings completely,
+# use the null "-" action as follows:
+#
+# Key F9		A	S	-
+# Key F10		A	S	-
+# Key F11		A	S	-
+# Key F12		A	S	-
+# Key F9		R	N	-
+# Key F10		R	N	-
+# Key F11		R	N	-
+# Key F12		R	N	-
+
+
+# Similar defaults are set for <ctrl>+F9-F12
+# in the fvwm2rc-hbuttonbar and -vbuttonbar.
+# If your application uses control-F9 etc.,
+# you may want to unbind them as follows:
+#
+#Key F9                A       C       -
+#Key F10               A       C       -
+#Key F11               A       C       -
+#Key F12               A       C       -
+
+
+#If you prefer Icons not to stick across Pages
+#Style "*" SlipperyIcon
+
+#If you prefer smaller xterm icons
+#Style "xterm*"     BorderWidth 5, HandleWidth 5, Icon IconNotThere.xpm, Title
+
+#If you prefer to double click on icons to de-iconify instead of single click
+#DestroyFunc "Move-or-Iconify"
+#AddToFunc "Move-or-Iconify" "M" Move
+#+                           "D" Iconify

@@ -3,17 +3,42 @@ if exists("g:myvimrc_loaded")
   finish
 endif
 
+" Setup to run pathogen
+" This makes plugin management easier and folders cleaner
 filetype off
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
+" Check for which operating system we are running under
+if has("win16") || has("win32") || has("win64")
+    let g:cur_os = "Windows"
+else
+    let g:cur_os = substitute(system('uname'), "\n", "", "")
+endif
+   
+" Setup vim runtime and source files to make editing in Windows more seamless
+" (similar keystrokes like Ctrl-Left/Ctrl-Right
 source $VIMRUNTIME/vimrc_example.vim
-source $VIMRUNTIME/mswin.vim
-behave mswin
-set gfn=Lucida_Console:h9:cANSI
-let $HOME = "C:/Users/bhunt/Documents"
-let $HOMEDRIVE = "C:"
-let $HOMEPATH = "/Users/bhunt/Documents"
+if g:cur_os == "Windows"
+    source $VIMRUNTIME/mswin.vim
+    behave mswin
+    let $HOME = "C:/Users/bhunt/Documents"
+    let $HOMEDRIVE = "C:"
+    let $HOMEPATH = "/Users/bhunt/Documents"
+endif
+
+if has('multi_byte')
+  scriptencoding utf-8
+  set enc=utf-8
+  set fileencodings=ucs-bom,utf-8,latin1
+  if version >= 700
+    set lcs=tab:»·,trail:·,eol:¶,extends:>,precedes:<,nbsp:×
+  else
+    set lcs=tab:»·,trail:·,eol:¶,extends:>,precedes:<
+  endif
+endif
+
+set guifont=Lucida_Console:h9:cANSI
 
 " for debugging use verbose
 " set verbose=2
@@ -52,6 +77,7 @@ set viminfo='20,<1000,s50,h,rA:,rB:,!
 set sessionoptions+=options,curdir,buffers,help,blank,resize,winpos
     " :help mksession for more information
     " also see mapping below for F2
+    " usage: :mksession ; :so Vimsession
 
 "colors
 syntax on 
@@ -62,6 +88,22 @@ set background=dark
 "colors ps_color
 colors torte
 "colors oceandeep
+" Current statusline I prefer when running in Linux
+if g:cur_os != "Windows"
+    hi User1 ctermbg=blue ctermfg=gray guibg=blue guifg=gray
+    hi User2 ctermbg=blue ctermfg=yellow guibg=blue guifg=yellow
+    hi User3 ctermbg=gray ctermfg=black guibg=gray guifg=black
+    hi User4 ctermbg=gray ctermfg=black guibg=gray guifg=black
+    set statusline=%4(%m%r%)\ %<%.99f\ %h%w%#User1#[%{&ff}]%*%=%#User1#%y%*\ %#User2#%{exists('g:loaded_fugitive')?fugitive#statusline():''}%*%-16(\ %l,%c%V\ %)%P
+    " Use different colors for statusline in current and non-current windows
+        let g:Active_statusline=&g:statusline
+        let g:NCstatusline=substitute(
+          \                substitute(g:Active_statusline,
+          \                'User1', 'User3', 'g'),
+          \                'User2', 'User4', 'g')
+    "set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=[%{&ff}]\ %{exists('g:loaded_fugitive')?fugitive#statusline():''}%-16(\ %l,%c-%v\ %)%P
+endif
+
 filetype plugin indent on 
 set linebreak showbreak=>\  
 
@@ -107,16 +149,21 @@ nmap <F2> :wa<Bar>exe "mksession! " . v:this_session<CR>:so ~/vimfiles/sessions/
     " :so ~/vimfiles/sessions/  start the command to open another session
 
 " IDE setup
-" TODO
-"    Gundo - having trouble with python version or finding gundo#GundoToggle
-"    TaskList doesn't seem to pull anything up
-"    Makegreen and pyflakes throwing errors on vim launch
-"    Add more snippets
-"    Compile Command-t using Ruby (install ruby)
-"    NERDTree doesn't seem to come up
-"    See if Rope can be used for C code
-"    Ack may be broken
-"    Add fugitive to statusline
+" TODO Windows -------
+" TODO Gundo - having trouble with python version or finding gundo#GundoToggle
+" TODO TaskList doesn't seem to pull anything up
+" TODO Makegreen and pyflakes throwing errors on vim launch
+" TODO Add more snippets
+" TODO Compile Command-t using Ruby (install ruby)
+" TODO NERDTree doesn't seem to come up
+" TODO See if Rope can be used for C code
+" TODO Ack may be broken
+" TODO Add fugitive to statusline
+" TODO Linux ---------
+" TODO Add more snippets
+" TODO See if Rope can be used for C code
+" TODO Ack may be broken
+" TODO Add fugitive to statusline
 " Task List
 map <leader>td <Plug>TaskList
 " MakeGreen
@@ -134,7 +181,7 @@ map <leader>mg :call MakeGreen()<CR>
 " Enable Gundo - graphical undo
 map <leader>g :GundoToggle<CR>
 " NERDTree Explorer
-map <leader>n :NERDTreeToggle<CR>
+map <leader>nt :NERDTreeToggle<CR>
 " Rope
 "map <leader>j :RopeGotoDefinition<CR>
 "map <leader>r :RopeRename<CR>
@@ -231,6 +278,9 @@ set pastetoggle=<F3>
 "  quickfix commands
 map <leader>n :cn<cr>
 map <leader>p :cp<cr>
+"  set errorformat for quickfix to properly parse new gcc output
+"  that includes ':' after column on some lines that should be ignored
+set errorformat=%*[^\"]\"%f\"%*\\D%l:\ %m,\"%f\"%*\\D%l:\ %m,%-G%f:%l\ (Each\ undeclared\ identifier\ is\ reported\ only\ once,%-G%f:%l:\ for\ each\ function\ it\ appears\ in.),%-GIn\ file\ included\ from\ %f:%l:%c,%-GIn\ file\ included\ from\ %f:%l%*[:],%-Gfrom\ %f:%l:%c,%-Gfrom\ %f:%l,%f:%l:%c:%m,%f(%l):%m,%f:%l:%m,\"%f\"\\,\ line\ %l%*\\D%c%*[^\ ]\ %m,%D%*\\a[%*\\d]:\ Entering\ directory\ \`%f\',%X%*\\a[%*\\d]:\ Leaving\ directory\ \`%f\',%D%*\\a:\ Entering\ directory\ \`%f\',%X%*\\a:\ Leaving\ directory\ \`%f\',%DMaking\ %*\\a\ in\ %f,%f\|%l\|\ %m
 " I prefer to use \c as the leader for todo commands
 " and I can't seem to figure out what this will do.
 " It seems to just close the :copen quick fix error buffer
@@ -332,30 +382,35 @@ call PyIndentAutoCfg()
 "==================================================================================
 " Setup a more friendly diff program
 " ---------------------------------------------------------------------------------
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
+"  Wasn't working in Linux @ Intel, no diff program in vimruntime
+if g:cur_os == "Windows"
+    set diffexpr=MyDiff()
+    function MyDiff()
+      let opt = '-a --binary '
+      if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+      if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+      let arg1 = v:fname_in
+      if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+      let arg2 = v:fname_new
+      if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+      let arg3 = v:fname_out
+      if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+      let eq = ''
+      " If this is true, we're most likely in Windows
+      if $VIMRUNTIME =~ ' '
+        if &sh =~ '\<cmd'
+          let cmd = '""' . $VIMRUNTIME . '\diff"'
+          let eq = '"'
+        else
+          let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+        endif
+      else
+        let cmd = $VIMRUNTIME . '\diff'
+      endif
+      silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+    endfunction
+endif
+
 "==================================================================================
 
 "==================================================================================

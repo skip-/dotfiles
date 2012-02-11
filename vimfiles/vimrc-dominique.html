@@ -1,0 +1,426 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>~/.vimrc.html</title>
+<meta name="Generator" content="Vim/7.3">
+<meta name="plugin-version" content="vim7.3_v2">
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="syntax" content="vim">
+<style type="text/css">
+<!--
+pre { font-family: monospace; color: #a8a8a8; background-color: #000000; }
+body { font-family: monospace; color: #a8a8a8; background-color: #000000; }
+.FoldColumn { color: #00afaf; background-color: #444444; font-weight: bold; }
+.FoldColumn { text-decoration: none; white-space: pre; }
+.open-fold   .Folded      { display: none; }
+.open-fold   .fulltext      { display: inline; }
+.open-fold   .toggle-open   { display: none; }
+.closed-fold .toggle-closed { display: inline; }
+
+.closed-fold .fulltext      { display: none; }
+.closed-fold .Folded      { display: inline; }
+.closed-fold .toggle-open   { display: inline; }
+.closed-fold .toggle-closed { display: none; }
+.Identifier { color: #dadada; background-color: #000000; font-weight: bold; }
+.Type { color: #dadada; background-color: #000000; font-weight: bold; }
+.PreProc { color: #626262; background-color: #000000; font-weight: bold; }
+.Number { color: #af0000; background-color: #000000; }
+.Operator { color: #dadada; background-color: #000000; font-weight: bold; }
+.String { color: #af0000; background-color: #000000; }
+.Special { color: #ff8700; background-color: #000000; }
+.Function { color: #dadada; background-color: #000000; }
+.Statement { color: #dadada; background-color: #000000; font-weight: bold; }
+.vimCommentTitle { color: #87ff87; background-color: #000000; font-weight: bold; }
+.Comment { color: #00af00; background-color: #000000; }
+-->
+</style>
+
+<script type='text/javascript'>
+<!--
+function toggleFold(objID)
+{
+  var fold;
+  fold = document.getElementById(objID);
+  if(fold.className == 'closed-fold')
+  {
+    fold.className = 'open-fold';
+  }
+  else if (fold.className == 'open-fold')
+  {
+    fold.className = 'closed-fold';
+  }
+}
+-->
+</script>
+</head>
+<body>
+<pre>
+<span class="Comment">&quot;</span> <span class="vimCommentTitle">Maintainer:</span><span class="Comment">  Dominique Pelle &lt;dominique.pelle at gmail.com&gt;</span>
+<span class="Comment">&quot;</span> <span class="vimCommentTitle">Last Change:</span><span class="Comment"> 07 May 2010</span>
+<span class="Comment">&quot;</span> <span class="vimCommentTitle">URL:</span><span class="Comment">         <a href="http://dominique.pelle.free.fr/.vimrc">http://dominique.pelle.free.fr/.vimrc</a></span>
+<span class="Comment">&quot;              <a href="http://dominique.pelle.free.fr/.vimrc.html">http://dominique.pelle.free.fr/.vimrc.html</a></span>
+<span class="Comment">&quot;</span>
+<span class="Comment">&quot; Plugins used:</span>
+<span class="Comment">&quot; - CSApprox or guicolorscheme (to get proper colors in terminal).</span>
+<span class="Comment">&quot; - taglist (to print function name in statusline)</span>
+
+<span class="Comment">&quot; Unlet g:color_names to avoid loading color scheme several times</span>
+<span class="Comment">&quot; when sourcing ~/.virmc a second time. Several commands would trigger</span>
+<span class="Comment">&quot; sourcing color scheme :syntax on and :set t_Co=256 and of course</span>
+<span class="Comment">&quot; command :colorscheme itself.</span>
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'eval'</span><span class="Special">)</span> | <span class="Statement">unlet</span>! g:colors_name | <span class="Statement">endif</span>
+
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'multi_byte'</span><span class="Special">)</span>
+  <span class="Statement">scriptencoding</span> utf<span class="Operator">-</span><span class="Number">8</span>
+  <span class="Statement">set</span> <span class="PreProc">enc</span>=utf-8
+  <span class="Statement">set</span> <span class="PreProc">fileencodings</span>=ucs-bom<span class="Statement">,</span>utf-8<span class="Statement">,</span>latin1
+  <span class="Statement">if</span> <span class="Statement">version</span> <span class="Operator">&gt;=</span> <span class="Number">700</span>
+    <span class="Statement">set</span> <span class="PreProc">lcs</span>=tab<span class="Statement">:</span>»·<span class="Statement">,</span>trail<span class="Statement">:</span>·<span class="Statement">,</span>eol<span class="Statement">:</span>¶<span class="Statement">,</span>extends<span class="Statement">:</span>&gt;<span class="Statement">,</span>precedes<span class="Statement">:</span>&lt;<span class="Statement">,</span>nbsp<span class="Statement">:</span>×
+  <span class="Statement">else</span>
+    <span class="Statement">set</span> <span class="PreProc">lcs</span>=tab<span class="Statement">:</span>»·<span class="Statement">,</span>trail<span class="Statement">:</span>·<span class="Statement">,</span>eol<span class="Statement">:</span>¶<span class="Statement">,</span>extends<span class="Statement">:</span>&gt;<span class="Statement">,</span>precedes<span class="Statement">:</span><span class="PreProc">&lt;</span>
+  <span class="Statement">endif</span>
+<span class="Statement">endif</span>
+
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'syntax'</span><span class="Special">)</span> | <span class="Statement">syntax</span> <span class="Type">on</span> | <span class="Statement">endif</span>
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'autocmd'</span><span class="Special">)</span>
+  <span class="Statement">filetype</span> <span class="Type">on</span>
+  <span class="Statement">filetype</span> <span class="Type">plugin</span> <span class="Type">on</span>
+<span class="Statement">endif</span>
+
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'gui_running'</span><span class="Special">)</span>
+  <span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">&quot;win16&quot;</span><span class="Special">)</span> <span class="Operator">||</span> <span class="Function">has</span><span class="Special">(</span><span class="String">&quot;win32&quot;</span><span class="Special">)</span> <span class="Operator">||</span> <span class="Function">has</span><span class="Special">(</span><span class="String">&quot;win95&quot;</span><span class="Special">)</span> <span class="Operator">||</span> <span class="Function">has</span><span class="Special">(</span><span class="String">&quot;win64&quot;</span><span class="Special">)</span>
+    <span class="Statement">set</span> <span class="PreProc">guifont</span>=Lucida\ Console<span class="Statement">:</span>h10
+  <span class="Statement">else</span>
+    <span class="Statement">set</span> <span class="PreProc">guifont</span>=Monospace\ 9
+  <span class="Statement">endif</span>
+  <span class="Statement">if</span> <span class="Function">exists</span><span class="Special">(</span><span class="String">'+toolbar'</span><span class="Special">)</span> | <span class="Statement">set</span> tb<span class="Operator">=</span>icons  | <span class="Statement">endif</span>
+  <span class="Statement">if</span> <span class="Function">exists</span><span class="Special">(</span><span class="String">'tbis'</span><span class="Special">)</span>     | <span class="Statement">set</span> tbis<span class="Operator">=</span>tiny | <span class="Statement">endif</span>
+<span class="Statement">else</span>
+  <span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'eval'</span><span class="Special">)</span> | <span class="Statement">let</span> Tlist_Inc_Winwidth<span class="Operator">=</span><span class="Number">0</span> | <span class="Statement">endif</span>
+<span class="Statement">endif</span>
+
+<span class="Comment">&quot; I don't want to use synch too often on a laptop.</span>
+<span class="Statement">if</span> <span class="Function">exists</span><span class="Special">(</span><span class="String">'+fsync'</span><span class="Special">)</span> | <span class="Statement">set</span> nofsync | <span class="Statement">endif</span>
+
+<span class="Comment">&quot; Don't wait 1s when pressing &lt;esc&gt;</span>
+<span class="Statement">set</span> <span class="PreProc">timeout</span> <span class="PreProc">timeoutlen</span>=3000 <span class="PreProc">ttimeoutlen</span>=100
+
+<span class="Statement">set</span> <span class="PreProc">nocompatible</span>
+<span class="Statement">set</span> <span class="PreProc">history</span>=400
+<span class="Statement">set</span> <span class="PreProc">textwidth</span>=0
+<span class="Statement">set</span> <span class="PreProc">backup</span>
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'persistent_undo'</span><span class="Special">)</span>
+  <span class="Statement">set</span> <span class="PreProc">undodir</span>=~/UNDO
+  <span class="Statement">set</span> <span class="PreProc">undofile</span>
+<span class="Statement">endif</span>
+<span class="Statement">if</span> <span class="Function">exists</span><span class="Special">(</span><span class="String">'+undoreload'</span><span class="Special">)</span>  | <span class="Statement">set</span> undoreload<span class="Operator">=</span><span class="Number">100000</span>    | <span class="Statement">endif</span>
+<span class="Statement">if</span> <span class="Function">exists</span><span class="Special">(</span><span class="String">'+cryptmethod'</span><span class="Special">)</span> | <span class="Statement">set</span> cryptmethod<span class="Operator">=</span>blowfish | <span class="Statement">endif</span>
+
+<span class="Comment">&quot; I don't like 'set mouse=a' behavior because it changes the position of</span>
+<span class="Comment">&quot; the cursor when clicking in a window to give it focus.  I prefer</span>
+<span class="Comment">&quot; 'set mouse=vic'.</span>
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'mouse'</span><span class="Special">)</span> | <span class="Statement">set</span> mouse<span class="Operator">=</span>vic | <span class="Statement">endif</span>
+
+<span class="Statement">set</span> <span class="PreProc">wildmode</span>=longest<span class="Statement">,</span>list
+<span class="Statement">set</span> <span class="PreProc">wildmenu</span>
+
+<span class="Statement">set</span> <span class="PreProc">splitbelow</span>
+<span class="Statement">set</span> <span class="PreProc">hidden</span>
+<span class="Statement">set</span> <span class="PreProc">nostartofline</span>
+<span class="Statement">set</span> <span class="PreProc">cpoptions</span>=ces$
+<span class="Statement">set</span> <span class="PreProc">backspace</span>=indent<span class="Statement">,</span>eol<span class="Statement">,</span>start
+<span class="Statement">set</span> <span class="PreProc">whichwrap</span>+=<span class="Special">&lt;</span><span class="Special">,</span><span class="Special">&gt;</span><span class="Statement">,</span>[<span class="Statement">,</span>]
+<span class="Statement">set</span> <span class="PreProc">wrap</span>
+<span class="Statement">set</span> <span class="PreProc">showbreak</span>=<span class="Statement">:</span>
+<span class="Statement">set</span> <span class="PreProc">laststatus</span>=2
+<span class="Statement">set</span> <span class="PreProc">shiftwidth</span>=2
+<span class="Statement">set</span> <span class="PreProc">shiftround</span>
+<span class="Statement">set</span> <span class="PreProc">softtabstop</span>=2
+<span class="Statement">set</span> <span class="PreProc">autoindent</span>
+<span class="Statement">set</span> <span class="PreProc">smartindent</span>
+<span class="Statement">set</span> <span class="PreProc">expandtab</span>
+<span class="Statement">set</span> <span class="PreProc">ignorecase</span>
+<span class="Statement">set</span> <span class="PreProc">infercase</span>
+<span class="Statement">set</span> <span class="PreProc">smartcase</span>
+<span class="Statement">set</span> <span class="PreProc">cino</span><span class="Statement">:</span>0
+<span class="Statement">set</span> <span class="PreProc">comments</span>=sr<span class="Statement">:</span>/*<span class="Statement">,</span>mb<span class="Statement">:</span>*<span class="Statement">,</span>ex<span class="Statement">:</span>*/
+<span class="Statement">set</span> <span class="PreProc">formatoptions</span>=tcqor
+<span class="Comment">&quot; set showfulltag</span>
+<span class="Statement">if</span> <span class="Function">exists</span><span class="Special">(</span><span class="String">'+autochdir'</span><span class="Special">)</span> | <span class="Statement">set</span> autochdir | <span class="Statement">endif</span>
+<span class="Statement">set</span> <span class="PreProc">visualbell</span>
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'cmdline_info'</span><span class="Special">)</span>
+  <span class="Statement">set</span> <span class="PreProc">ruler</span>
+  <span class="Statement">set</span> <span class="PreProc">showcmd</span>
+<span class="Statement">endif</span>
+<span class="Statement">set</span> <span class="PreProc">nonumber</span>
+<span class="Statement">set</span> <span class="PreProc">showmatch</span>
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'extra_search'</span><span class="Special">)</span>
+  <span class="Statement">set</span> <span class="PreProc">hlsearch</span>
+  <span class="Statement">set</span> <span class="PreProc">incsearch</span>
+<span class="Statement">endif</span>
+<span class="Statement">set</span> <span class="PreProc">nolist</span>
+<span class="Statement">set</span> <span class="PreProc">matchpairs</span>+=&lt;<span class="Statement">:</span>&gt;
+<span class="Statement">set</span> <span class="PreProc">virtualedit</span>=block
+<span class="Statement">set</span> <span class="PreProc">display</span>=lastline<span class="Statement">,</span>uhex
+
+<span class="Statement">set</span> <span class="PreProc">tags</span>=tags<span class="Statement">,</span>~/tags<span class="Statement">,</span>~/stl-tags
+<span class="Statement">set</span> <span class="PreProc">thesaurus</span>=~/thesaurus/mthesaur.txt
+
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'cscope'</span><span class="Special">)</span>
+  <span class="Statement">if</span> <span class="Function">filereadable</span><span class="Special">(</span><span class="Function">expand</span><span class="Special">(</span><span class="String">&quot;$HOME/cscope.out&quot;</span><span class="Special">))</span>
+    cs kill <span class="Operator">-</span><span class="Number">1</span>
+    cs add ~/cscope<span class="Operator">.</span>out
+  <span class="Statement">endif</span>
+  <span class="Statement">set</span> <span class="PreProc">cscopeverbose</span>
+
+<span class="Comment">  &quot; Put output of cscope in quickfix window (use :copen)</span>
+  <span class="Statement">set</span> <span class="PreProc">cscopequickfix</span>=s-<span class="Statement">,</span>c-<span class="Statement">,</span>d-<span class="Statement">,</span>i-<span class="Statement">,</span>t-<span class="Statement">,</span>e-<span class="Statement">,</span>g-
+<span class="Statement">endif</span>
+
+<span class="Statement">set</span> <span class="PreProc">makeprg</span>=make\ VERBOSE=\ DEBUG=yes
+
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'eval'</span><span class="Special">)</span>
+  <span class="Statement">let</span> g:lex_uses_cpp<span class="Operator">=</span><span class="Number">1</span>
+  <span class="Statement">let</span> g:yacc_uses_cpp<span class="Operator">=</span><span class="Number">1</span>
+  <span class="Statement">let</span> g:load_doxygen_syntax<span class="Operator">=</span><span class="Number">1</span>
+  <span class="Statement">let</span> g:is_posix<span class="Operator">=</span><span class="Number">1</span>
+  <span class="Statement">let</span> g:c_gnu<span class="Operator">=</span><span class="Number">1</span>
+  <span class="Statement">let</span> g:netrw_special_syntax<span class="Operator">=</span><span class="Number">1</span>
+  <span class="Statement">let</span> g:netrw_liststyle<span class="Operator">=</span><span class="Number">3</span>
+  <span class="Statement">let</span> g:netrw_browse_split<span class="Operator">=</span><span class="Number">4</span>
+  <span class="Statement">let</span> g:vimsyntax_noerror<span class="Operator">=</span><span class="Number">1</span>
+
+<span class="Comment">  &quot; Required to see the current function name in the status bar.</span>
+  <span class="Statement">let</span> Tlist_Process_File_Always <span class="Operator">=</span> <span class="Number">1</span>
+
+<span class="Comment">  &quot; Configure HTML output with :TOhtml</span>
+<span class="Comment">  &quot; let html_number_lines=1</span>
+  <span class="Statement">let</span> html_use_css<span class="Operator">=</span><span class="Number">1</span>
+  <span class="Statement">let</span> html_use_xhtml<span class="Operator">=</span><span class="Number">1</span>
+  <span class="Statement">let</span> html_dynamic_folds<span class="Operator">=</span><span class="Number">1</span>
+
+<span class="Comment">  &quot; Set up for the CSApprox.vim plugin.</span>
+  <span class="Statement">let</span> g:CSApprox_attr_map <span class="Operator">=</span> <span class="Special">{</span> <span class="String">'bold'</span> : <span class="String">'bold'</span>, <span class="String">'italic'</span> : <span class="String">''</span>, <span class="String">'sp'</span> : <span class="String">''</span> <span class="Special">}</span>
+<span class="Statement">endif</span>
+
+<span class="Comment">&quot; This mapping allows to stay in visual mode when indenting with &lt; and &gt;</span>
+<span class="Statement">vnoremap</span> &gt; &gt;gv
+<span class="Statement">vnoremap</span> &lt; &lt;gv
+
+<span class="Statement">noremap</span> <span class="Special">&lt;</span><span class="Special">c-]</span><span class="Special">&gt;</span> g<span class="Special">&lt;</span><span class="Special">c-]</span><span class="Special">&gt;</span>
+<span class="Statement">noremap</span> <span class="Special">&lt;</span><span class="Special">c-g</span><span class="Special">&gt;</span> g<span class="Special">&lt;</span><span class="Special">c-g</span><span class="Special">&gt;</span>
+
+<span class="Comment">&quot; These mappings are useful in long wrapped lines when pressing &lt;down&gt; or &lt;up&gt;</span>
+<span class="Comment">&quot; Use j or k to get the default behavior.</span>
+<span class="Statement">noremap</span> <span class="Special">&lt;</span><span class="Special">down</span><span class="Special">&gt;</span> gj
+<span class="Statement">noremap</span> <span class="Special">&lt;</span><span class="Special">up</span><span class="Special">&gt;</span>   gk
+
+ <span class="Statement">map</span> <span class="Special">&lt;</span><span class="Special">F2</span><span class="Special">&gt;</span>      :set paste!<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>:set paste?<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">F2</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-O</span><span class="Special">&gt;</span>:set paste<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>:set paste?<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+ <span class="Statement">map</span> <span class="Special">&lt;</span><span class="Special">F3</span><span class="Special">&gt;</span>      :set number!<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>:set number?<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">F3</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-O</span><span class="Special">&gt;</span>:set number!<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;&lt;</span><span class="Special">C-O</span><span class="Special">&gt;</span>:set number?<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+ <span class="Statement">map</span> <span class="Special">&lt;</span><span class="Special">F4</span><span class="Special">&gt;</span>      :set hlsearch!<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>:set hlsearch?<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">F4</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-O</span><span class="Special">&gt;</span>:set hlsearch!<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;&lt;</span><span class="Special">C-O</span><span class="Special">&gt;</span>:set hlsearch?<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+ <span class="Statement">map</span> <span class="Special">&lt;</span><span class="Special">F5</span><span class="Special">&gt;</span>      :set list!<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>:set list?<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">F5</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-O</span><span class="Special">&gt;</span>:set list!<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;&lt;</span><span class="Special">C-O</span><span class="Special">&gt;</span>:set list?<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">silent</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">F6</span><span class="Special">&gt;</span> :TlistToggle<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'spell'</span><span class="Special">)</span>
+  <span class="Statement">set</span> <span class="PreProc">spell</span>
+
+  <span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'eval'</span><span class="Special">)</span>
+<span class="Comment">    &quot; Rotate through languages of spelling checker.</span>
+    <span class="Statement">let</span> g:myLangIdx <span class="Operator">=</span> <span class="Number">0</span>
+    <span class="Statement">let</span> g:myLangCodes <span class="Operator">=</span> [ <span class="String">&quot;en_us&quot;</span>, <span class="String">&quot;eo&quot;</span>, <span class="String">&quot;fr&quot;</span>, <span class="String">&quot;it&quot;</span>, <span class="String">&quot;br&quot;</span> ]
+    <span class="Statement">let</span> g:myLangs <span class="Operator">=</span> [ <span class="String">&quot;language:&quot;</span>, <span class="String">&quot;lingvo:&quot;</span>, <span class="String">&quot;langue :&quot;</span>, <span class="String">&quot;lingua:&quot;</span>, <span class="String">&quot;yezh:&quot;</span> ]
+    <span class="Statement">function</span>! MySpellLang<span class="Special">()</span>
+      <span class="Statement">let</span> g:myLangIdx <span class="Operator">=</span> g:myLangIdx <span class="Operator">+</span> <span class="Number">1</span>
+      <span class="Statement">if</span> g:myLangIdx <span class="Operator">&gt;=</span> <span class="Function">len</span><span class="Special">(</span>g:myLangs<span class="Special">)</span> | <span class="Statement">let</span> g:myLangIdx <span class="Operator">=</span> <span class="Number">0</span> | <span class="Statement">endif</span>
+
+      <span class="Statement">if</span> g:myLangIdx <span class="Operator">==</span> <span class="Number">0</span> | <span class="Statement">setlocal</span> <span class="PreProc">spell</span> <span class="PreProc">spelllang</span>=en_us | endif
+      <span class="Statement">if</span> g:myLangIdx <span class="Operator">==</span> <span class="Number">1</span> | <span class="Statement">setlocal</span> <span class="PreProc">spell</span> <span class="PreProc">spelllang</span>=eo    | endif
+      <span class="Statement">if</span> g:myLangIdx <span class="Operator">==</span> <span class="Number">2</span> | <span class="Statement">setlocal</span> <span class="PreProc">spell</span> <span class="PreProc">spelllang</span>=fr    | endif
+      <span class="Statement">if</span> g:myLangIdx <span class="Operator">==</span> <span class="Number">3</span> | <span class="Statement">setlocal</span> <span class="PreProc">spell</span> <span class="PreProc">spelllang</span>=it    | endif
+      <span class="Statement">if</span> g:myLangIdx <span class="Operator">==</span> <span class="Number">4</span> | <span class="Statement">setlocal</span> <span class="PreProc">spell</span> <span class="PreProc">spelllang</span>=br    | endif
+
+      <span class="Statement">echo</span> g:myLangs[g:myLangIdx] g:myLangCodes[g:myLangIdx]
+    <span class="Statement">endf</span>
+
+    <span class="Statement">map</span>  <span class="Special">&lt;</span><span class="Special">F7</span><span class="Special">&gt;</span>      :call MySpellLang()<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+    <span class="Statement">imap</span> <span class="Special">&lt;</span><span class="Special">F7</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">C-o</span><span class="Special">&gt;</span>:call MySpellLang()<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+  <span class="Statement">endif</span>
+  <span class="Statement">map</span>  <span class="Special">&lt;</span><span class="Special">F8</span><span class="Special">&gt;</span> :set spell!<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="Statement">endif</span>
+
+<span class="Comment">&quot; Tip #750: <a href="http://vim.wikia.com/wiki/VimTip750">http://vim.wikia.com/wiki/VimTip750</a></span>
+<span class="Comment">&quot; Underline the current line.</span>
+<span class="Statement">nnoremap</span> <span class="Special">&lt;</span><span class="Special">F9</span><span class="Special">&gt;</span> yyp<span class="Special">&lt;</span><span class="Special">c-v</span><span class="Special">&gt;</span>$r-
+<span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">F9</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">esc</span><span class="Special">&gt;</span>yyp<span class="Special">&lt;</span><span class="Special">c-v</span><span class="Special">&gt;</span>$r-A
+
+<span class="Comment">&quot; Tip #99: display syntax group under the cursor.</span>
+<span class="Statement">map</span>  <span class="Special">&lt;</span><span class="Special">F10</span><span class="Special">&gt;</span> :echo &quot;hi&lt;&quot;
+<span class="Special">\</span> . synIDattr(synID(line(&quot;.&quot;),col(&quot;.&quot;),1),&quot;name&quot;) . '&gt; trans&lt;'
+<span class="Special">\</span> <span class="Operator">.</span> <span class="Function">synIDattr</span><span class="Special">(</span><span class="Function">synID</span><span class="Special">(</span><span class="Function">line</span><span class="Special">(</span><span class="String">&quot;.&quot;</span><span class="Special">)</span>,<span class="Function">col</span><span class="Special">(</span><span class="String">&quot;.&quot;</span><span class="Special">)</span>,<span class="Number">0</span><span class="Special">)</span>,<span class="String">&quot;name&quot;</span><span class="Special">)</span> <span class="Operator">.</span> <span class="String">&quot;&gt; lo&lt;&quot;</span>
+<span class="Special">\</span> <span class="Operator">.</span> <span class="Function">synIDattr</span><span class="Special">(</span><span class="Function">synIDtrans</span><span class="Special">(</span><span class="Function">synID</span><span class="Special">(</span><span class="Function">line</span><span class="Special">(</span><span class="String">&quot;.&quot;</span><span class="Special">)</span>,<span class="Function">col</span><span class="Special">(</span><span class="String">&quot;.&quot;</span><span class="Special">)</span>,<span class="Number">1</span><span class="Special">))</span>,<span class="String">&quot;name&quot;</span><span class="Special">)</span>
+<span class="Special">\</span> <span class="Operator">.</span> <span class="String">&quot;&gt;&quot;</span><span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+
+<span class="Statement">map</span>  <span class="Special">&lt;</span><span class="Special">F12</span><span class="Special">&gt;</span> :!ctags -R --c++-kinds=+p --fields=+iaSn --extra=+q .<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+
+<span class="Comment">&quot; Following mappings allow to cut undo to reduce granularity of</span>
+<span class="Comment">&quot; undos. See also:</span>
+<span class="Comment">&quot;   <a href="http://vim.wikia.com/wiki/Modified_undo_behavior">http://vim.wikia.com/wiki/Modified_undo_behavior</a></span>
+<span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">c-u</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">c-g</span><span class="Special">&gt;</span>u<span class="Special">&lt;</span><span class="Special">c-u</span><span class="Special">&gt;</span>
+<span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">c-w</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">c-g</span><span class="Special">&gt;</span>u<span class="Special">&lt;</span><span class="Special">c-w</span><span class="Special">&gt;</span>
+<span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">bs</span><span class="Special">&gt;</span>  <span class="Special">&lt;</span><span class="Special">c-g</span><span class="Special">&gt;</span>u<span class="Special">&lt;</span><span class="Special">bs</span><span class="Special">&gt;</span>
+<span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">del</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">c-g</span><span class="Special">&gt;</span>u<span class="Special">&lt;</span><span class="Special">del</span><span class="Special">&gt;</span>
+<span class="Statement">inoremap</span> <span class="Special">&lt;</span><span class="Special">tab</span><span class="Special">&gt;</span> <span class="Special">&lt;</span><span class="Special">tab</span><span class="Special">&gt;&lt;</span><span class="Special">c-g</span><span class="Special">&gt;</span>u
+<span class="Comment">&quot;imap     &lt;space&gt; &lt;space&gt;&lt;c-g&gt;u</span>
+<span class="Statement">if</span> <span class="Statement">version</span> <span class="Operator">&gt;=</span> <span class="Number">700</span> <span class="Operator">&amp;&amp;</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'autocmd'</span><span class="Special">)</span>
+<span class="Comment">  &quot; Undo break if I don't press a key in insert mode for a few seconds.</span>
+  <span class="Statement">au</span>! <span class="Type">CursorHoldI</span> * <span class="Statement">call</span> <span class="Function">feedkeys</span><span class="Special">(</span><span class="String">&quot;\&lt;C-G&gt;u&quot;</span>, <span class="String">&quot;nt&quot;</span><span class="Special">)</span>
+<span class="Statement">endif</span>
+
+<span class="Comment">&quot; Increase undolevel because of above mappings and because of persistent-undo.</span>
+<span class="Statement">set</span> <span class="PreProc">undolevels</span>=4000
+
+<span class="Comment">&quot; Function used to display syntax group.</span>
+<span class="Statement">function</span>! SyntaxItem<span class="Special">()</span>
+  <span class="Statement">return</span> <span class="Function">synIDattr</span><span class="Special">(</span><span class="Function">synID</span><span class="Special">(</span><span class="Function">line</span><span class="Special">(</span><span class="String">&quot;.&quot;</span><span class="Special">)</span>,<span class="Function">col</span><span class="Special">(</span><span class="String">&quot;.&quot;</span><span class="Special">)</span>,<span class="Number">1</span><span class="Special">)</span>,<span class="String">&quot;name&quot;</span><span class="Special">)</span>
+<span class="Statement">endfunction</span>
+
+<span class="Comment">&quot; Function used to display utf-8 sequence.</span>
+<span class="Statement">fun</span>! ShowUtf8Sequence<span class="Special">()</span>
+  <span class="Statement">try</span>
+    <span class="Statement">let</span> p <span class="Operator">=</span> <span class="Function">getpos</span><span class="Special">(</span><span class="String">'.'</span><span class="Special">)</span>
+    <span class="Statement">redir</span> <span class="Operator">=&gt;</span> utfseq
+    <span class="Statement">sil</span> <span class="Statement">normal!</span> g8
+    <span class="Statement">redir</span> End
+    <span class="Statement">call</span> <span class="Function">setpos</span><span class="Special">(</span><span class="String">'.'</span>, p<span class="Special">)</span>
+    <span class="Statement">return</span> <span class="Function">substitute</span><span class="Special">(</span><span class="Function">matchstr</span><span class="Special">(</span>utfseq, <span class="String">'\x\+ .*\x'</span><span class="Special">)</span>, <span class="String">'\&lt;\x'</span>, <span class="String">'0x&amp;'</span>, <span class="String">'g'</span><span class="Special">)</span>
+  <span class="Statement">catch</span>
+    <span class="Statement">return</span> <span class="String">'?'</span>
+  <span class="Statement">endtry</span>
+<span class="Statement">endfunction</span>
+
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'statusline'</span><span class="Special">)</span>
+  <span class="Statement">if</span> <span class="Statement">version</span> <span class="Operator">&gt;=</span> <span class="Number">700</span>
+<span class="Comment">    &quot; Fancy status line.</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span> =
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%#User1#                       <span class="Comment">&quot; highlighting</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%n                             <span class="Comment">&quot; buffer number</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%{'/'.bufnr('$')}\             <span class="Comment">&quot; buffer count</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%#User2#                       <span class="Comment">&quot; highlighting</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%f                             <span class="Comment">&quot; file name</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%#User1#                       <span class="Comment">&quot; highlighting</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%h%m%r%w\                      <span class="Comment">&quot; flags</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%{(&amp;key==\&quot;\&quot;?\&quot;\&quot;<span class="Statement">:</span>\&quot;encr<span class="Statement">,</span>\&quot;)} <span class="Comment">&quot; encrypted?</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%{strlen(&amp;ft)?&amp;ft<span class="Statement">:</span>'none'}<span class="Statement">,</span>     <span class="Comment">&quot; file type</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%{(&amp;fenc==\&quot;\&quot;?&amp;enc<span class="Statement">:</span>&amp;fenc)}<span class="Statement">,</span>   <span class="Comment">&quot; encoding</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%{((exists(\&quot;+bomb\&quot;)\ &amp;&amp;\ &amp;bomb)?\&quot;B<span class="Statement">,</span>\&quot;<span class="Statement">:</span>\&quot;\&quot;)} <span class="Comment">&quot; BOM</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%{&amp;fileformat}<span class="Statement">,</span>                <span class="Comment">&quot; file format</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%{&amp;spelllang}<span class="Statement">,</span>                 <span class="Comment">&quot; spell language</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%(%{Tlist_Get_Tagname_By_Line()}%)<span class="Statement">,</span> <span class="Comment">&quot; Function name</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%{SyntaxItem()}                <span class="Comment">&quot; syntax group under cursor</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%=                             <span class="Comment">&quot; indent right</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%#User2#                       <span class="Comment">&quot; highlighting</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%{ShowUtf8Sequence()}\         <span class="Comment">&quot; utf-8 sequence</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%#User1#                       <span class="Comment">&quot; highlighting</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=U+%04B\                        <span class="Comment">&quot; Unicode char under cursor</span>
+    <span class="Statement">set</span> <span class="PreProc">statusline</span>+=%-6.(%l/%{line('$')}<span class="Statement">,</span>%c%V%)\ %&lt;%P           <span class="Comment">&quot; position</span>
+
+<span class="Comment">    &quot; Use different colors for statusline in current and non-current window.</span>
+    <span class="Statement">let</span> g:Active_statusline<span class="Operator">=</span>&amp;g:statusline
+    <span class="Statement">let</span> g:NCstatusline<span class="Operator">=</span><span class="Function">substitute</span>(
+<span class="Special">      \</span>                <span class="Function">substitute</span>(g:Active_statusline,
+<span class="Special">      \</span>                <span class="String">'User1'</span>, <span class="String">'User3'</span>, <span class="String">'g'</span>),
+<span class="Special">      \</span>                <span class="String">'User2'</span>, <span class="String">'User4'</span>, <span class="String">'g'</span>)
+  <span class="Statement">endif</span>
+<span class="Statement">endif</span>
+
+<span class="Statement">iab</span> 8&lt; --- 8&lt; --- cut here --- 8&lt; --- cut here --- 8&lt; ---
+<span class="Statement">iab</span> fori for (i = 0; i &lt;; i++)<span class="Special">&lt;</span><span class="Special">cr</span><span class="Special">&gt;</span>{<span class="Special">&lt;</span><span class="Special">cr</span><span class="Special">&gt;</span>}<span class="Special">&lt;</span><span class="Special">Esc</span><span class="Special">&gt;</span>kk0f&lt;a
+<span class="Statement">iab</span> forj for (j = 0; j &lt;; j++)<span class="Special">&lt;</span><span class="Special">cr</span><span class="Special">&gt;</span>{<span class="Special">&lt;</span><span class="Special">cr</span><span class="Special">&gt;</span>}<span class="Special">&lt;</span><span class="Special">Esc</span><span class="Special">&gt;</span>kk0f&lt;a
+
+<span class="Statement">if</span> !<span class="Function">exists</span><span class="Special">(</span><span class="String">':DiffOrig'</span><span class="Special">)</span>
+  <span class="Statement">command</span> DiffOrig <span class="Statement">vert</span> <span class="Statement">new</span> | <span class="Statement">set</span> <span class="PreProc">bt</span>=nofile | r # | 0d_ | diffthis
+<span class="Special">                 \</span> | <span class="Statement">wincmd</span> <span class="Statement">p</span> | <span class="Statement">diffthis</span>
+<span class="Statement">endif</span>
+
+<span class="Comment">&quot; OmniCppComplete</span>
+<span class="Statement">if</span> <span class="Statement">version</span> <span class="Operator">&gt;=</span> <span class="Number">700</span>
+  <span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'insert_expand'</span><span class="Special">)</span>
+    <span class="Statement">let</span> OmniCpp_NamespaceSearch   <span class="Operator">=</span> <span class="Number">1</span>
+    <span class="Statement">let</span> OmniCpp_GlobalScopeSearch <span class="Operator">=</span> <span class="Number">1</span>
+    <span class="Statement">let</span> OmniCpp_ShowAccess        <span class="Operator">=</span> <span class="Number">1</span>
+    <span class="Statement">let</span> OmniCpp_MayCompleteDot    <span class="Operator">=</span> <span class="Number">1</span>
+    <span class="Statement">let</span> OmniCpp_MayCompleteArrow  <span class="Operator">=</span> <span class="Number">1</span>
+    <span class="Statement">let</span> OmniCpp_MayCompleteScope  <span class="Operator">=</span> <span class="Number">1</span>
+    <span class="Statement">let</span> OmniCpp_DefaultNamespaces <span class="Operator">=</span> [<span class="String">&quot;std&quot;</span>, <span class="String">&quot;_GLIBCXX_STD&quot;</span>]
+
+    <span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'autocmd'</span><span class="Special">)</span>
+<span class="Comment">      &quot; Automatically open/close the preview window.</span>
+      <span class="Statement">au</span>! <span class="Type">CursorMovedI</span>,<span class="Type">InsertLeave</span> * <span class="Statement">if</span> <span class="Function">pumvisible</span><span class="Special">()</span> <span class="Operator">==</span> <span class="Number">0</span> | <span class="Statement">sil</span>! <span class="Statement">pclose</span> | <span class="Statement">endif</span>
+      <span class="Statement">set</span> <span class="PreProc">completeopt</span>=menuone<span class="Statement">,</span>longest<span class="Statement">,</span>preview
+    <span class="Statement">endif</span>
+  <span class="Statement">endif</span>
+<span class="Statement">endif</span>
+
+<span class="Statement">if</span> <span class="Function">has</span><span class="Special">(</span><span class="String">'autocmd'</span><span class="Special">)</span>
+<span class="Comment">  &quot; Source .vimrc when I write it.  The nested keyword allows</span>
+<span class="Comment">  &quot; autocommand ColorScheme to fire when sourcing ~/.vimrc.</span>
+  <span class="Statement">au</span>! <span class="Type">BufWritePost</span> .vimrc nested <span class="Statement">source</span> <span class="Identifier">%</span>
+
+<span class="Comment">  &quot; Change color of cursor in terminal:</span>
+<span class="Comment">  &quot; - red in normal mode.</span>
+<span class="Comment">  &quot; - orange in insert mode.</span>
+<span class="Comment">  &quot; Tip found there:</span>
+<span class="Comment">  &quot;   <a href="http://forums.macosxhints.com/archive/index.php/t-49708.html">http://forums.macosxhints.com/archive/index.php/t-49708.html</a></span>
+<span class="Comment">  &quot; It works at least with: xterm rxvt eterm</span>
+<span class="Comment">  &quot; But do nothing with: gnome-terminal terminator konsole xfce4-terminal</span>
+  <span class="Statement">if</span> <span class="Statement">version</span> <span class="Operator">&gt;=</span> <span class="Number">700</span>
+    <span class="Statement">if</span> &amp;term <span class="Operator">=~</span> <span class="String">&quot;xterm</span><span class="String">\\</span><span class="String">|rxvt&quot;</span>
+<span class="Comment">      &quot;:silent !echo -ne </span><span class="String">&quot;\033]12;red\007&quot;</span>
+      <span class="Statement">let</span> &amp;t_SI <span class="Operator">=</span> <span class="String">&quot;\033]12;orange\007&quot;</span>
+      <span class="Statement">let</span> &amp;t_EI <span class="Operator">=</span> <span class="String">&quot;\033]12;red\007&quot;</span>
+      <span class="Statement">au</span>! <span class="Type">VimLeave</span> * :<span class="Statement">sil</span> !<span class="Statement">echo</span> -ne <span class="String">&quot;\033]12;red\007&quot;</span>
+    <span class="Statement">endif</span>
+  <span class="Statement">endif</span>
+
+<span class="Comment">  &quot; vim -b : edit binary using xxd-format</span>
+<span class="Comment">  &quot; See :help hex-editing</span>
+  <span class="Statement">augroup</span> Binary
+    <span class="Statement">au</span>!
+    <span class="Statement">au</span> <span class="Type">BufReadPre</span>   *.dat <span class="Statement">let</span> &amp;bin<span class="Operator">=</span><span class="Number">1</span>
+    <span class="Statement">au</span> <span class="Type">BufReadPost</span>  *.dat <span class="Statement">if</span>  &amp;bin   | %!xxd
+    <span class="Statement">au</span> <span class="Type">BufReadPost</span>  *.dat <span class="Statement">set</span> <span class="PreProc">ft</span>=xxd | endif
+    <span class="Statement">au</span> <span class="Type">BufWritePre</span>  *.dat <span class="Statement">if</span>  &amp;bin   | %!xxd -r
+    <span class="Statement">au</span> <span class="Type">BufWritePre</span>  *.dat <span class="Statement">endif</span>
+    <span class="Statement">au</span> <span class="Type">BufWritePost</span> *.dat <span class="Statement">if</span>  &amp;bin   | %!xxd
+    <span class="Statement">au</span> <span class="Type">BufWritePost</span> *.dat <span class="Statement">set</span> <span class="PreProc">nomod</span>  | endif
+  <span class="Statement">augroup</span> END
+
+  <span class="Statement">augroup</span> CursorHighlight
+    <span class="Statement">au</span>!
+    <span class="Statement">au</span> <span class="Type">WinEnter</span> * <span class="Statement">let</span>&amp;<span class="Statement">l</span>:statusline <span class="Operator">=</span> g:Active_statusline
+    <span class="Statement">au</span> <span class="Type">WinLeave</span> * <span class="Statement">let</span>&amp;<span class="Statement">l</span>:statusline <span class="Operator">=</span> g:NCstatusline
+  <span class="Statement">augroup</span> END
+<span class="Statement">endif</span>
+
+<span class="Statement">if</span> &amp;term <span class="Operator">!=</span> <span class="String">'cygwin'</span> <span class="Operator">&amp;&amp;</span> &amp;term <span class="Operator">!=</span> <span class="String">'linux'</span>
+  <span class="Statement">set</span> <span class="PreProc">t_Co</span>=256
+<span class="Statement">endif</span>
+
+
+<span class="Comment">&quot; SmartTag mapping</span>
+<span class="Statement">nmap</span> <span class="Special">&lt;</span><span class="Special">C-_</span><span class="Special">&gt;&lt;</span><span class="Special">C-_</span><span class="Special">&gt;</span> :call SmartTag#SmartTag(&quot;goto&quot;)<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="Statement">nmap</span> <span class="Special">&lt;</span><span class="Special">C-_</span><span class="Special">&gt;&lt;</span><span class="Special">C-W</span><span class="Special">&gt;</span> :call SmartTag#SmartTag(&quot;split&quot;)<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="Statement">nmap</span> <span class="Special">&lt;</span><span class="Special">C-_</span><span class="Special">&gt;&lt;</span><span class="Special">C-T</span><span class="Special">&gt;</span> :call SmartTag#SmartTag(&quot;tab&quot;)<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+<span class="Statement">nmap</span> <span class="Special">&lt;</span><span class="Special">C-_</span><span class="Special">&gt;&lt;</span><span class="Special">C-D</span><span class="Special">&gt;</span> :call SmartTag#SmartTag(&quot;debug&quot;)<span class="Special">&lt;</span><span class="Special">CR</span><span class="Special">&gt;</span>
+
+<span class="Comment">&quot; rastafari colorscheme available at:</span>
+<span class="Comment">&quot;   <a href="http://dominique.pelle.free.fr/rastafari.vim">http://dominique.pelle.free.fr/rastafari.vim</a></span>
+<span class="Comment">&quot;   <a href="http://dominique.pelle.free.fr/rastafari.vim.html">http://dominique.pelle.free.fr/rastafari.vim.html</a></span>
+<span class="Statement">colorscheme</span> rastafari
+</pre>
+</body>
+</html>
